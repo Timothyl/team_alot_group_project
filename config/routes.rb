@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root "food_trucks#index"
   devise_for :users
-  resources :food_trucks, only: [:index]
+  resources :food_trucks, only: [:index] do
+    resources :reviews, only: [:index]
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

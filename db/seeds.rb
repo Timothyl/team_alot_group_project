@@ -5,9 +5,19 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-FoodTruck.create(
+f = FoodTruck.create(
   name: "Chicken & Rice Guys",
   description: "Food truck that specializes in chicken and lamb shawarma.",
   avg_rating: 4,
   location: "Harvard Square"
 )
+
+# u = User.find(1)
+#
+# Review.create(
+#   header: "Great food, simple menu!",
+#   body: "This place rocks. Love to eat here every day. I probably shouldn't.",
+#   rating: 5,
+#   food_truck: f,
+#   user: u
+# )
