@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "user signs out", %{
+feature "user views", %{
   As a user
   I want to view a list of food trucks
   so that I can decide where to eat
@@ -18,9 +18,6 @@ feature "user signs out", %{
 
     visit "food_trucks#index"
     expect(page).to have_content("Chicken & Rice Guys")
-    expect(page).to have_content("Food truck that specializes in chicken and
-    lamb shawarma.")
     expect(page).to have_content("4")
-    expect(page).to have_content("Harvard Square")
   end
 end
