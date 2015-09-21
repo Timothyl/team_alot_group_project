@@ -1,5 +1,5 @@
 
-![Build Status](https://codeship.com/projects/103854/status?branch=master)![Code Climate](https://codeclimate.com/github/Timothyl/team_alot_group_project.png) ![Coverage Status](https://coveralls.io/repos/Timothyl/team_alot_group_project/badge.png)
+[ ![Codeship Status for Timothyl/team_alot_group_project](https://codeship.com/projects/13d1a7d0-42b5-0133-0230-0a794f3732af/status?branch=master)](https://codeship.com/projects/103854)![Code Climate](https://codeclimate.com/github/Timothyl/team_alot_group_project.png) [![Coverage Status](https://coveralls.io/repos/Timothyl/team_alot_group_project/badge.svg?branch=master&service=github)](https://coveralls.io/github/Timothyl/team_alot_group_project?branch=master)
 
 
 Link to ER diagram:
