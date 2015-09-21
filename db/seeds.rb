@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+FoodTruck.create(
+  name: "Chicken & Rice Guys",
+  description: "Food truck that specializes in chicken and lamb shawarma.",
+  avg_rating: 4,
+  location: "Harvard Square"
+)

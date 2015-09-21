@@ -1,0 +1,13 @@
+<h1>Food Trucks</h1>
+
+
+<% @food_trucks.each do |food_truck| %>
+  <ul>
+    <li>
+      Name: <%= food_truck.name %><br>
+      Description: <%= food_truck.description %><br>
+      Location: <%= food_truck.location %><br>
+      Rating: <%= food_truck.avg_rating %><br>
+    </li>
+  </ul>
+<% end %>
