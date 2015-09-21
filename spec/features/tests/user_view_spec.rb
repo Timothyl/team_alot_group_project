@@ -23,13 +23,4 @@ feature "user signs out", %{
     expect(page).to have_content("4")
     expect(page).to have_content("Harvard Square")
   end
-
-  scenario "this should not pass" do
-    FoodTruck.create(
-      name: ""
-    )
-
-    visit "food_trucks#index"
-    expect(page).to have_content("Chipotle Truck")
-  end
 end
