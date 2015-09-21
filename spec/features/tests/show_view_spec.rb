@@ -6,7 +6,7 @@ feature "user views show page", %{
   so that I can learn more about it
 } do
   # Acceptance Criteria
-  # * If a user goes to the index page, they see a list of food trucks.
+  # * If a user goes to the show page, they see a list of food trucks.
 
   scenario "user views show page of a food truck" do
     a = FoodTruck.create(
@@ -22,7 +22,8 @@ feature "user views show page", %{
 
     click_link("#{a.name}")
     expect(page).to have_content("Chicken & Rice Guys")
-    expect(page).to have_content("Food truck that specializes in chicken and lamb shawarma.")
+    expect(page).to have_content("Food truck that specializes in chicken and
+     lamb shawarma.")
     expect(page).to have_content("4")
     expect(page).to have_content("Harvard Square")
 
