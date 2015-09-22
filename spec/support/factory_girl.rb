@@ -7,7 +7,7 @@ FactoryGirl.define do
     password_confirmation "password"
   end
 
-  factory :food_truck, :class => FoodTruck do |f|
+  factory :food_truck do
     sequence(:name) { |n| "foodtruck#{n}" }
     description "This is the description for this food truck"
     avg_rating 3
