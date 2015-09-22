@@ -11,13 +11,3 @@ FoodTruck.create(
   avg_rating: 4,
   location: "Harvard Square"
 )
-
-# u = User.find(1)
-#
-# Review.create(
-#   header: "Great food, simple menu!",
-#   body: "This place rocks. Love to eat here every day. I probably shouldn't.",
-#   rating: 5,
-#   food_truck: f,
-#   user: u
-# )
