@@ -1,0 +1,14 @@
+<h1> <%=@food_truck.name %> </h1>
+<ul>
+  <h3>
+    <%=@food_truck.avg_rating%>
+  </h3>
+  <p>
+  Primary Location: <%=@food_truck.location%>
+  </p>
+  <p><h5>
+    <%=@food_truck.description%>
+  </p></h5>
+</ul>
+
+<%= link_to "Back", food_trucks_path, class: "button success" %>
