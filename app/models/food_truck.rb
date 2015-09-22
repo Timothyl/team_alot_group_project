@@ -1,5 +1,6 @@
 class FoodTruck < ActiveRecord::Base
   has_many :reviews
+  
   validates :name, presence: true
   validates :name, length: { maximum: 30 }
   validates :name, uniqueness: true

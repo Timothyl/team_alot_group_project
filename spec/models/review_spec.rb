@@ -10,10 +10,12 @@ describe Review do
     it { should have_db_column(:user_id).of_type(:integer) }
     it { should have_db_column(:food_truck_id).of_type(:integer) }
   end
+
   describe "associations" do
     it { should belong_to(:user) }
     it { should belong_to(:food_truck) }
   end
+
   describe "validations" do
     it { should validate_numericality_of(:rating) }
     it { should validate_inclusion_of(:rating).in_range(1..5) }
