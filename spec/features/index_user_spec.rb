@@ -1,9 +1,9 @@
 require "rails_helper"
 
- feature "user views show page", %{
- As a user
- I want to view a food truck's information
- so that I can learn more about it
+feature "user views show page", %{
+  As a user
+  I want to view a food truck's information
+  so that I can learn more about it
 } do
  # Acceptance Criteria
  # * If a user goes to the show page, they see a list of food trucks.

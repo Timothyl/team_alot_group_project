@@ -28,5 +28,4 @@ class FoodTrucksController < ApplicationController
     params.require(:food_truck).permit(:name, :description,
     :avg_rating, :location)
   end
-
 end
