@@ -18,12 +18,12 @@ describe FoodTruck do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:description) }
     it { should validate_presence_of(:avg_rating) }
-    it { should validate_length_of(:name).is_at_most(30)}
-    it { should validate_length_of(:description).is_at_least(20)}
-    it { should validate_length_of(:description).is_at_most(200)}
-    it { should validate_numericality_of(:avg_rating)}
+    it { should validate_length_of(:name).is_at_most(30) }
+    it { should validate_length_of(:description).is_at_least(20) }
+    it { should validate_length_of(:description).is_at_most(200) }
+    it { should validate_numericality_of(:avg_rating) }
 
-    subject { FactoryGirl.create(:food_truck)}
-    it { should validate_uniqueness_of(:name)}
+    subject { FactoryGirl.create(:food_truck) }
+    it { should validate_uniqueness_of(:name) }
   end
 end
