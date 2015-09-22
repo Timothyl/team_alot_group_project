@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "food_trucks#index"
-  devise_for :users
+  devise_for :users, controllers: {
+        sessions: 'users/sessions'
+  }
   authenticate :user do
     resources :food_trucks, only: [:new, :create]
   end
