@@ -8,11 +8,8 @@ feature "user views show page and sees reviews", %{
   # Acceptance Criteria
   # * If a user goes to the show page, they see a list of food truck reviews.
   scenario "user navigates to a food truck's show page and sees reviews" do
-    f = FactoryGirl.create(:food_truck)
-    FactoryGirl.create(:review, food_truck: f)
-
-    visit "/food_trucks/#{f.id}"
-    expect(page).to have_content("This is the body of the review.
-     It's terribly interesting.")
+    r = FactoryGirl.create(:review)
+    visit food_truck_path(r.food_truck)
+    expect(page).to have_content(r.food_truck.body)
   end
 end

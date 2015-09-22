@@ -9,7 +9,7 @@ FactoryGirl.define do
   end
 
   factory :food_truck do
-    sequence(:name) { |n| "foodtruck#{n}" }
+    sequence(:name) { |m| "foodtruck#{m}" }
     description "This is the description for this food truck"
     avg_rating 3
     location "On the street"
