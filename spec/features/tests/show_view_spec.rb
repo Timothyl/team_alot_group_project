@@ -9,23 +9,18 @@ feature "user views show page", %{
   # * If a user goes to the show page, they see a list of food trucks.
 
   scenario "user views show page of a food truck" do
-    a = FoodTruck.create(
+    sample_food_truck_1= FoodTruck.create(
       name: "Chicken & Rice Guys",
       description: "Food truck that specializes in chicken and lamb shawarma.",
       avg_rating: 4,
       location: "Harvard Square"
     )
 
-    visit "/"
-    expect(page).to have_content("Chicken & Rice Guys")
-    expect(page).to have_content("4")
-
-    click_link("#{a.name}")
-    expect(page).to have_content("Chicken & Rice Guys")
-    expect(page).to have_content("Food truck that specializes in chicken and
-     lamb shawarma.")
-    expect(page).to have_content("4")
-    expect(page).to have_content("Harvard Square")
+    visit food_truck_path(sample_food_truck_1.id)
+    expect(page).to have_content(sample_food_truck_1.name)
+    expect(page).to have_content(sample_food_truck_1.description)
+    expect(page).to have_content(sample_food_truck_1.avg_rating)
+    expect(page).to have_content(sample_food_truck_1.location)
 
   end
 end
