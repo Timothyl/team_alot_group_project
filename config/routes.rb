@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   root "food_trucks#index"
   devise_for :users
-
-  resources :food_trucks, only: [:index, :show] do
+  authenticate :user do
+    resources :food_trucks, only: [:new, :create]
+  end
+  resources :food_trucks, only: [:index, :show]  do
     resources :reviews, only: [:index]
   end
 
