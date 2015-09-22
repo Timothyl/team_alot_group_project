@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   authenticate :user do
     resources :food_trucks, only: [:new, :create]
   end
-  resources :food_trucks, only: [:index, :show]
+  resources :food_trucks, only: [:index, :show]  do
+    resources :reviews, only: [:index]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
