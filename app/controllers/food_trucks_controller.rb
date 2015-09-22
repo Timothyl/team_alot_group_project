@@ -5,7 +5,6 @@ class FoodTrucksController < ApplicationController
 
   def show
     @food_truck = FoodTruck.find(params[:id])
-
   end
 
   def new
@@ -13,7 +12,6 @@ class FoodTrucksController < ApplicationController
   end
 
   def create
-
     @food_truck = FoodTruck.new(food_truck_params)
 
     if @food_truck.save
@@ -25,9 +23,10 @@ class FoodTrucksController < ApplicationController
   end
 
   private
-  def food_truck_params
-    params.require(:food_truck).permit(:name, :description, :avg_rating, :location)
-  end
 
+  def food_truck_params
+    params.require(:food_truck).permit(:name, :description,
+    :avg_rating, :location)
+  end
 
 end

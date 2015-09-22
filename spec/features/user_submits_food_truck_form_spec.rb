@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'registered user submits new food truck', %Q{
+feature 'registered user submits new food truck', %{
   As a registered user,
   I want to submit a form
   So that I can add a new food truck
@@ -74,4 +74,4 @@ feature 'registered user submits new food truck', %Q{
       (minimum is 20 characters)')
     end
 
-  end
+end
