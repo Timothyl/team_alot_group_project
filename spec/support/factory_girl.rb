@@ -7,7 +7,7 @@ FactoryGirl.define do
     password_confirmation "password"
   end
 
-  factory :food_truck do
+  factory :food_truck, :class => FoodTruck do |f|
     sequence(:name) { |n| "foodtruck#{n}" }
     description "This is the description for this food truck"
     avg_rating 3
@@ -18,6 +18,8 @@ FactoryGirl.define do
     sequence(:header) { |n| "review#{n}" }
     body "This is the body of the review. It's terribly interesting."
     rating 3
-  end
 
+    food_truck
+    user
+  end
 end
