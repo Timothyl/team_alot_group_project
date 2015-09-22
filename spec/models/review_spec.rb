@@ -2,13 +2,13 @@ require "rails_helper"
 
 describe Review do
   describe "table" do
-    it {should have_db_column(:header).of_type(:string) }
-    it {should have_db_column(:body).of_type(:string) }
-    it {should have_db_column(:rating).of_type(:integer) }
-    it {should have_db_column(:created_at).of_type(:datetime) }
-    it {should have_db_column(:updated_at).of_type(:datetime) }
-    it {should have_db_column(:user_id).of_type(:integer) }
-    it {should have_db_column(:food_truck_id).of_type(:integer) }
+    it { should have_db_column(:header).of_type(:string) }
+    it { should have_db_column(:body).of_type(:string) }
+    it { should have_db_column(:rating).of_type(:integer) }
+    it { should have_db_column(:created_at).of_type(:datetime) }
+    it { should have_db_column(:updated_at).of_type(:datetime) }
+    it { should have_db_column(:user_id).of_type(:integer) }
+    it { should have_db_column(:food_truck_id).of_type(:integer) }
   end
   describe "associations" do
     it { should belong_to(:user) }
