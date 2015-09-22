@@ -22,9 +22,7 @@ class FoodTrucksController < ApplicationController
     end
   end
 
-
-  private
-
+private
 
   def food_truck_params
     params.require(:food_truck).permit(:name, :description,
