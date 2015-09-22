@@ -1,0 +1,19 @@
+<h1>Add a New Food Truck</h1>
+
+ <%= form_for @food_truck do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :avg_rating %>
+  <%= f.text_field :avg_rating %>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <br>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <br>
+  <%= f.submit "Add Food Truck", class: "success button" %>
+ <% end %>
+
+<%= link_to "Back to home", food_trucks_path, class: "button alert" %>

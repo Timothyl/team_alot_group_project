@@ -6,12 +6,12 @@
   <p>
   Primary Location: <%=@food_truck.location%>
   </p>
-  <p>
-    <h5>
+
+  <p><h5>
     <%=@food_truck.description%>
-    </h5>
-  </p>
+  </p></h5>
 </ul>
+
 
 <h2>Reviews</h2>
 <% @reviews.each do |review| %>
@@ -20,3 +20,5 @@
   <p><%= review.body  %></p>
   <p><%= review.created_at  %></p>
 <% end %>
+
+<%= link_to "Back", food_trucks_path, class: "button success" %>
