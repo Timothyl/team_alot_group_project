@@ -15,7 +15,7 @@ feature "user views show page", %{
      location: "Harvard Square"
    )
 
-   visit "/food_trucks/#{sample_food_truck_1.id}"
+   visit food_truck_path(sample_food_truck_1)
  end
 
  scenario "user views show page of a food truck" do
@@ -28,11 +28,10 @@ feature "user views show page", %{
 
    visit food_trucks_path
    click_link(sample_food_truck_1.name)
-   visit food_truck_path(sample_food_truck_1.id)
+
    expect(page).to have_content(sample_food_truck_1.name)
    expect(page).to have_content(sample_food_truck_1.description)
    expect(page).to have_content(sample_food_truck_1.avg_rating)
    expect(page).to have_content(sample_food_truck_1.location)
-
  end
 end

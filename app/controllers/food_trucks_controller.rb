@@ -16,6 +16,7 @@ class FoodTrucksController < ApplicationController
 
     if @food_truck.save
       redirect_to @food_truck
+      flash[:success] = 'New Food Truck Added'
     else
       flash[:errors] = @food_truck.errors.full_messages.join(". ")
       render :new
