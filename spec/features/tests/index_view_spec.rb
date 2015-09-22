@@ -9,15 +9,15 @@ feature "user views", %{
   # * If a user goes to the index page, they see a list of food trucks.
 
   scenario "user views index page" do
-    FoodTruck.create(
+    sample_food_truck_1 = FoodTruck.create(
       name: "Chicken & Rice Guys",
       description: "Food truck that specializes in chicken and lamb shawarma.",
       avg_rating: 4,
       location: "Harvard Square"
     )
 
-    visit "food_trucks#index"
-    expect(page).to have_content("Chicken & Rice Guys")
-    expect(page).to have_content("4")
+    visit food_trucks
+    expect(page).to have_content(sample_food_truck_1.name)
+    expect(page).to have_content(sample_food_truck_1.avg_rating)
   end
 end

@@ -9,7 +9,7 @@ feature "user views show page", %{
   # * If a user goes to the show page, they see a list of food trucks.
 
   scenario "user views show page of a food truck" do
-    sample_food_truck_1= FoodTruck.create(
+    sample_food_truck_1 = FoodTruck.create(
       name: "Chicken & Rice Guys",
       description: "Food truck that specializes in chicken and lamb shawarma.",
       avg_rating: 4,
