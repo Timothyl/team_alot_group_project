@@ -1,14 +1,14 @@
 require "rails_helper"
 
-feature "user views show page", %{
+feature "user views", %{
   As a user
-  I want to view a food truck's information
-  so that I can learn more about it
+  I want to view a list of food trucks
+  So that I can decide where to eat
 } do
   # Acceptance Criteria
-  # * If a user goes to the show page, they see a list of food trucks.
+  # * If a user goes to the index page, they see a list of food trucks.
 
-  scenario "user views show page of a food truck" do
+  scenario "user views index page" do
     sample_food_truck_1 = FoodTruck.create(
       name: "Chicken & Rice Guys",
       description: "Food truck that specializes in chicken and lamb shawarma.",
@@ -16,11 +16,8 @@ feature "user views show page", %{
       location: "Harvard Square"
     )
 
-    visit food_truck_path(sample_food_truck_1.id)
+    visit food_trucks_path
     expect(page).to have_content(sample_food_truck_1.name)
-    expect(page).to have_content(sample_food_truck_1.description)
     expect(page).to have_content(sample_food_truck_1.avg_rating)
-    expect(page).to have_content(sample_food_truck_1.location)
-
   end
 end
