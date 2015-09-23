@@ -1,12 +1,16 @@
-<h1>Food Trucks</h1>
-
-  <h3><%= link_to "Submit New Food Truck", new_food_truck_path, class: "success button" %></h3>
-
-<% @food_trucks.each do |food_truck| %>
-  <ul>
-    <li>
-      Name: <%= link_to food_truck.name, food_truck_path(food_truck) %><br>
-      Rating: <%= food_truck.avg_rating %><br>
-    </li>
-  </ul>
-<% end %>
+<div class = "row">
+  <div class = "small-1 column"><p></p></div>
+  <div class = "small-10 column">
+    <ul class = "small-block-grid-2 medium-block-grid-3">
+      <% @food_trucks.each do |food_truck| %>
+          <li>
+            <div class="panel">
+              Name: <%= link_to food_truck.name, food_truck_path(food_truck) %><br>
+              Rating: <%= food_truck.avg_rating %><br>
+            </div>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class = "small-1 column"><p></p></div>
+</div>
