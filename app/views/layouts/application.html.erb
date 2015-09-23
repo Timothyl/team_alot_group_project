@@ -16,6 +16,7 @@
 
     <section class="top-bar-section">
       <ul class="right">
+        <li><%= link_to 'Submit New Food Truck', new_food_truck_path %></li>
         <%- if current_user -%>
           <li><%= link_to 'My Account', edit_user_registration_path %></li>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
@@ -26,6 +27,8 @@
       </ul>
     </section>
   </nav>
+
+  
 
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">

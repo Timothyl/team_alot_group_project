@@ -12,13 +12,12 @@
   </p></h5>
 </ul>
 
-<h3>User Reviews</h3>
-<ul>
-  <% @reviews.each do |review| %>
-  <li>
-      rating: <%= review.rating %> stars - <%= review.body %>
-  </li>
-  <% end %>
-</ul>
+<h2>Reviews</h2>
+<% @reviews.each do |review| %>
+  <p><%= review.header  %></p>
+  <p><%= review.rating  %></p>
+  <p><%= review.body  %></p>
+  <p><%= review.created_at  %></p>
+<% end %>
 
 <%= link_to "Back", food_trucks_path, class: "button success" %>
