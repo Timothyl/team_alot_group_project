@@ -21,7 +21,8 @@ feature 'user edits profile', %{
     click_link('My Account')
 
     expect(page).to have_content('Edit User')
-    expect(page).to have_content('(we need your current password to confirm your changes)')
+    expect(page).to have_content('(we need your
+    current password to confirm your changes)')
     expect(page).to have_content('Cancel my account')
 
   end
