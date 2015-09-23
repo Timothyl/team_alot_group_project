@@ -79,11 +79,37 @@ feature "user submits a food truck review", %{
   end
 
   scenario 'unregistered user submits a form' do
+    sample_food_truck_1 = FoodTruck.create(
+      name: "Chicken & Rice Guys",
+      description: "Food truck that specializes
+      in chicken and lamb shawarma.",
+      avg_rating: 4,
+      location: "Harvard Square"
+    )
+    user = FactoryGirl.create(:user)
 
     visit food_trucks_path
-    click_link('Submit New Food Truck')
 
-    expect(page).to have_content('Log in')
-    expect(page).to have_content('Forgot your password?')
+    visit "/food_trucks/#{sample_food_truck_1.id}"
+
+    expect(page).to have_content("Submit Your Review")
+
+    click_button('Submit Your Review')
+
+    expect(page).to have_content("Header")
+    expect(page).to have_content("Body")
+    expect(page).to have_content("Rating")
+
+    fill_in "Header", with: 'blahblahblah'
+    fill_in "Body", with: 'such food much good
+    such food much good such food much
+    good such food much good such food much good'
+    fill_in "Rating", with: '1'
+
+    click_button('Submit Review')
+
+    expect(page).to have_content("You need to sign in
+    or sign up before continuing.")
+
   end
 end
