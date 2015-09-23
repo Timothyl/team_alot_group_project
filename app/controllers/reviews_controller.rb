@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
 
     if @review.save
       redirect_to food_truck_path(@food_truck)
+      flash[:success] = 'New Review Added'
     else
       flash[:errors] = @review.errors.full_messages.join(". ")
       render :new
@@ -19,6 +20,7 @@ class ReviewsController < ApplicationController
 
   protected
   def review_params
-    params.require(:review).permit(:header, :body, :rating, :food_truck_id)
+    params.require(:review).permit(:header, :body,
+                                   :rating)
   end
 end

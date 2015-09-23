@@ -4,10 +4,13 @@ Rails.application.routes.draw do
         sessions: 'users/sessions'
   }
   authenticate :user do
-    resources :food_trucks, only: [:new, :create]
+    resources :food_trucks, only: [:new, :create] do
+      resources :reviews, only: [:new, :create]
+    end
   end
-  resources :food_trucks, only: [:index, :show]  do
-    resources :reviews, only: [:new, :create]
+  resources :food_trucks, only: [:index, :show,
+            :new, :create] do
+    resources :reviews
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

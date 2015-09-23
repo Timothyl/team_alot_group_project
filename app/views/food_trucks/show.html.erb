@@ -14,16 +14,21 @@
 
 <h2>Reviews</h2>
 
-<script type="text/javasscript">
+<script type="text/javascript">
   function toggle_visibility(id) {
     var e = document.getElementById(id);
-    e.style.display = 'block';
-    debugger;
+    if(e.style.display == 'block')
+       e.style.display = 'none';
+    else
+       e.style.display = 'block';
   }
 </script>
-<a href="#" onclick="toggle_visibility('reviewform');">
+
+<button data-remote="true" class="button radius"
+onclick="toggle_visibility('reviewform');">
+Submit Your Review</button>
 <div id='reviewform'>
- <%= form_for(:review) do |f| %>
+ <%= form_for [@food_truck, @review] do |f| %>
   <%= f.label :header %>
   <%= f.text_field :header %>
   <br>
@@ -34,16 +39,9 @@
   <%= f.text_area :rating %>
   <br>
 
-  <%= f.submit "Submit Review", class: "success button" %>
+  <%= f.submit "Submit Review" %>
  <% end %>
 </div>
-
-<% @reviews.each do |review| %>
-  <p><%= review.header  %></p>
-  <p><%= review.rating  %></p>
-  <p><%= review.body  %></p>
-  <p><%= review.created_at  %></p>
-<% end %>
 
 <div id="reviews">
 <%= render @reviews %>
@@ -53,4 +51,5 @@
   <%= paginate @reviews, :remote => true %>
 </div>
 
-<%= link_to "Back", food_trucks_path, class: "button success" %>
+<%= link_to "Back", food_trucks_path,
+class: "button success" %>
