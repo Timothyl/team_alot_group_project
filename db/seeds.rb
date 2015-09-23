@@ -15,30 +15,17 @@ foodtrucks = [
       cuisine made
     from locally sourced and sustainable ingredients.", 4, "Fenway"]
 ]
-
-
 foodtrucks.each do |foodtruck|
   name, description, avg_rating, location = foodtruck
   f = FoodTruck.find_or_create_by!(name: name, description: description,
     avg_rating: avg_rating, location: location)
-  Review.find_or_create_by!(header: "This is a review header",
-   body: "This is a review body.
-   I am typing this because we need a minimum charcter count", rating: 3,
-   food_truck: f)
-  Review.find_or_create_by!(header: "2This is a review header",
-   body: "2This is a review body.
-   I am typing this because we need a minimum charcter count", rating: 3,
-   food_truck: f)
-  Review.find_or_create_by!(header: "3This is a review header",
-   body: "3This is a review body.
-   I am typing this because we need a minimum charcter count", rating: 3,
-   food_truck: f)
-  Review.find_or_create_by!(header: "4This is a review header",
-   body: "4This is a review body.
-   I am typing this because we need a minimum charcter count", rating: 3,
-   food_truck: f)
-   Review.find_or_create_by!(header: "5This is a review header",
-    body: "5This is a review body.
-    I am typing this because we need a minimum charcter count", rating: 3,
-    food_truck: f)
+
+  (1..10).to_a.each do |n|
+    Review.find_or_create_by!(header: "#{n}. This is a review header",
+                              body: "#{n}. This is a review body.
+                              I am typing this because we need a minimum
+                              charcter count",
+                              rating: (1..5).to_a.sample,
+                              food_truck: f)
+  end
 end
