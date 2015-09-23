@@ -17,8 +17,9 @@ FactoryGirl.define do
 
   factory :review do
     sequence(:header) { |n| "review #{n}" }
-    sequence(:body) { |n| "#{n}. This is the body of the review.
-      It's terribly interesting."}
+    sequence(:body) do |n|
+      "#{n}. This is the body of the review. It's terribly interesting."
+    end
     rating 3
 
     food_truck
