@@ -86,7 +86,6 @@ feature "user submits a food truck review", %{
       avg_rating: 4,
       location: "Harvard Square"
     )
-    user = FactoryGirl.create(:user)
 
     visit food_trucks_path
 
