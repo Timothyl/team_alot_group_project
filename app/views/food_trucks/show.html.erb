@@ -13,6 +13,32 @@
 </ul>
 
 <h2>Reviews</h2>
+
+
+<script type="text/javasscript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    e.style.display = 'block';
+    debugger;
+  }
+</script>
+<a href="#" onclick="toggle_visibility('reviewform');">
+<div id='reviewform'>
+ <%= form_for(:review) do |f| %>
+  <%= f.label :header %>
+  <%= f.text_field :header %>
+  <br>
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+  <br>
+  <%= f.label :rating %>
+  <%= f.text_area :rating %>
+  <br>
+
+  <%= f.submit "Submit Review", class: "success button" %>
+ <% end %>
+</div>
+
 <% @reviews.each do |review| %>
   <p><%= review.header  %></p>
   <p><%= review.rating  %></p>
