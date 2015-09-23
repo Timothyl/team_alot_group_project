@@ -74,8 +74,16 @@ feature "user submits a food truck review", %{
     click_button('Submit Review')
 
     expect(page).to have_content("New Review Added")
-    click_link "Next"
 
     expect(page).to have_content('blahblahblah')
+  end
+
+  scenario 'unregistered user submits a form' do
+
+    visit food_trucks_path
+    click_link('Submit New Food Truck')
+
+    expect(page).to have_content('Log in')
+    expect(page).to have_content('Forgot your password?')
   end
 end
