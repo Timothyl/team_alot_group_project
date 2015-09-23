@@ -25,5 +25,14 @@ feature 'user edits profile', %{
     current password to confirm your changes)')
     expect(page).to have_content('Cancel my account')
 
+    fill_in 'Email', with: 'derp@gmail.com'
+    fill_in 'Password', with: 'nicepassword'
+    fill_in 'Password confirmation', with: 'nicepassword'
+    fill_in 'Current password', with: user.password
+
+    click_button 'Update'
+
+    expect(page).to have_content('Your account has been updated successfully.')
+
   end
 end
