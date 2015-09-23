@@ -19,6 +19,8 @@ FactoryGirl.define do
     sequence(:header) { |n| "review#{n}" }
     body "This is the body of the review. It's terribly interesting."
     rating 3
-  end
 
+    food_truck
+    user
+  end
 end
