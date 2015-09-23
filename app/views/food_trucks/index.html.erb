@@ -12,7 +12,7 @@
       <% @food_trucks.each do |food_truck| %>
           <li id="list">
             <div class="panel" data-equalizer-watch>
-              <ul id="in_panel">
+              <ul class="in_panel">
                 <li><div class="name"><%= link_to food_truck.name, food_truck_path(food_truck) %></div></li>
                 <li>Rating: <%= food_truck.avg_rating %></li>
               </ul>
