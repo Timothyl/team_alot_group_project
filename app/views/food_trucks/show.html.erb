@@ -1,7 +1,7 @@
 <h1> <%=@food_truck.name %> </h1>
 <ul>
   <h3>
-    <%=@food_truck.avg_rating%>
+    Average Food Truck Rating: <%=@food_truck.avg_rating%>
   </h3>
   <p>
   Primary Location: <%=@food_truck.location%>
@@ -13,7 +13,6 @@
 </ul>
 
 <h2>Reviews</h2>
-
 
 <script type="text/javasscript">
   function toggle_visibility(id) {
@@ -45,5 +44,13 @@
   <p><%= review.body  %></p>
   <p><%= review.created_at  %></p>
 <% end %>
+
+<div id="reviews">
+<%= render @reviews %>
+</div>
+
+<div id ="paginator">
+  <%= paginate @reviews, :remote => true %>
+</div>
 
 <%= link_to "Back", food_trucks_path, class: "button success" %>

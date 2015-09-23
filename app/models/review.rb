@@ -1,4 +1,5 @@
 class Review < ActiveRecord::Base
+  paginates_per 4
   belongs_to :food_truck
   belongs_to :user
   validates :header, presence: true
