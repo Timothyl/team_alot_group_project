@@ -5,24 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-FoodTruck.create(
-  name: "Chicken & Rice Guys",
-  description: "Food truck that specializes in chicken and lamb shawarma.",
-  avg_rating: 4,
-  location: "Harvard Square"
-)
 
-FoodTruck.create(
-  name: "Banh Mi",
-  description: "Food truck that specializes in Asian fusion-type foods.",
-  avg_rating: 4,
-  location: "South Station"
-)
-
-FoodTruck.create(
-  name: "Mei Mei",
-  description: "Food truck that serves creative Chinese-American cuisine made
-  from locally sourced and sustainable ingredients.",
-  avg_rating: 4,
-  location: "Fenway"
-)
+foodtrucks = [
+    ["Chicken & Rice Guys", "Food truck that specializes in
+      chicken and lamb shawarma.", 4, "Harvard Square"],
+    ["Banh Mi", "Food truck that specializes
+      in Asian fusion-type foods.", 4, "South Station"],
+    ["Mei Mei", "Food truck that serves creative Chinese-American
+      cuisine made
+    from locally sourced and sustainable ingredients.", 4, "Fenway"]
+]
+foodtrucks.each do |foodtruck|
+  name, description, avg_rating, location = foodtruck
+  FoodTruck.find_or_create_by!(name: name, description: description,
+    avg_rating: avg_rating, location: location)
+end
