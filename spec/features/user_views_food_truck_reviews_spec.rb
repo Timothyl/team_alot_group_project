@@ -10,6 +10,6 @@ feature "user views show page and sees reviews", %{
   scenario "user navigates to a food truck's show page and sees reviews" do
     r = FactoryGirl.create(:review)
     visit food_truck_path(r.food_truck)
-    expect(page).to have_content(r.food_truck.body)
+    expect(page).to have_content(r.body)
   end
 end
