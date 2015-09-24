@@ -1,6 +1,5 @@
 class FoodTrucksController < ApplicationController
   def index
-    @food_trucks = FoodTruck.all
 
     if params[:search]
       @food_trucks = FoodTruck.search(params[:search]).order("created_at DESC")
