@@ -25,7 +25,7 @@ feature "user submits a food truck review", %{
 
     click_button 'Log in'
 
-    visit "/food_trucks/#{sample_food_truck_1.id}"
+    visit food_truck_path(sample_food_truck_1)
 
     expect(page).to have_content("Submit Your Review")
 
@@ -55,7 +55,7 @@ feature "user submits a food truck review", %{
 
     click_button 'Log in'
 
-    visit "/food_trucks/#{sample_food_truck_1.id}"
+    visit food_truck_path(sample_food_truck_1)
 
     expect(page).to have_content("Submit Your Review")
 
@@ -89,7 +89,7 @@ feature "user submits a food truck review", %{
 
     visit food_trucks_path
 
-    visit "/food_trucks/#{sample_food_truck_1.id}"
+    visit food_truck_path(sample_food_truck_1)
 
     expect(page).to have_content("Submit Your Review")
 
