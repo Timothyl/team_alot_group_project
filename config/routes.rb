@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
   resources :food_trucks, only: [:index, :show,
-            :new, :create] do
+                                :new, :create] do
     resources :reviews
   end
 
