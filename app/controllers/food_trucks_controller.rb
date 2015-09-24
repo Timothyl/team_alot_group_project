@@ -1,6 +1,15 @@
 class FoodTrucksController < ApplicationController
   def index
     @food_trucks = FoodTruck.all
+
+    if params[:search]
+      @food_trucks = FoodTruck.search(params[:search]).order("created_at DESC")
+      if @food_trucks == []
+        flash[:errors] = 'No food trucks found'
+      end
+    else
+      @food_trucks = FoodTruck.all.order('created_at DESC')
+    end
   end
 
   def show
@@ -13,6 +22,7 @@ class FoodTrucksController < ApplicationController
   end
 
   def create
+    food_truck_params['name'].downcase!
     @food_truck = FoodTruck.new(food_truck_params)
 
     if @food_truck.save

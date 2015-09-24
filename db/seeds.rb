@@ -7,11 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 foodtrucks = [
-    ["Chicken & Rice Guys", "Food truck that specializes in
+    ["chicken & rice guys", "Food truck that specializes in
       chicken and lamb shawarma.", 4, "Harvard Square"],
-    ["Banh Mi", "Food truck that specializes
+    ["banh mi", "Food truck that specializes
       in Asian fusion-type foods.", 4, "South Station"],
-    ["Mei Mei", "Food truck that serves creative Chinese-American
+    ["mei mei", "Food truck that serves creative Chinese-American
       cuisine made
     from locally sourced and sustainable ingredients.", 4, "Fenway"]
 ]
