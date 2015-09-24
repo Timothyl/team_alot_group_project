@@ -17,12 +17,10 @@
 
 $(function(){ $(document).foundation(); });
 
-def reverse_string(string)
-  new_string = []
-  i = string.length-1
-  while i >= 0
-    new_string.push(string[i])
-    i -= 1
-  end
-  new_string.join
-end
+function toggle_visibility(id) {
+  var e = document.getElementById(id);
+  if(e.style.display == 'block')
+     e.style.display = 'none';
+  else
+     e.style.display = 'block';
+}
