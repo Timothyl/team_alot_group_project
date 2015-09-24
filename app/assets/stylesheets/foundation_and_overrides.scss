@@ -997,11 +997,11 @@ $block-grid-default-spacing: rem-calc(25);
 // $panel-bg: scale-color($white, $lightness: -5%);
 $panel-bg: $vapor;
 // $panel-border-style: solid;
-// $panel-border-size: 1px;
+$panel-border-size: 3px;
 // $callout-panel-bg: scale-color($primary-color, $lightness: 94%);
 
 // We use this % to control how much we darken things on hover
-// $panel-border-color: scale-color($panel-bg, $lightness: -11%);
+$panel-border-color: #aec2b7;
 
 // We use these to set default inner padding and bottom margin
 // $panel-margin-bottom: rem-calc(20);
@@ -1433,7 +1433,7 @@ $topbar-title-font-size: rem-calc(30);
 $topbar-link-font-size: rem-calc(15);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 // $topbar-link-bg: $topbar-bg;
-// $topbar-link-bg-hover: $jet;
+$topbar-link-bg-hover: #40593a;
 // $topbar-link-bg-color-hover: $charcoal;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
