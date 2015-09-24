@@ -1,4 +1,5 @@
 class Review < ActiveRecord::Base
+  acts_as_votable
   paginates_per 4
   belongs_to :food_truck
   belongs_to :user

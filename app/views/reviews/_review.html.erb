@@ -2,5 +2,6 @@
 <p>Header: <%= review.header  %></p>
 <p>Rating: <%= review.rating  %></p>
 <p>Review: <%= review.body  %></p>
+<%= link_to image_tag("up_arrow.png"), review.liked_by current_user %>
 <p>Created At: <%= review.created_at.to_date  %></p>
 </div>
