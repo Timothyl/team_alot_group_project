@@ -7,13 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 foodtrucks = [
-    ["chicken & rice guys", "Food truck that specializes in
-      chicken and lamb shawarma.", 4, "Harvard Square"],
-    ["banh mi", "Food truck that specializes
-      in Asian fusion-type foods.", 4, "South Station"],
-    ["mei mei", "Food truck that serves creative Chinese-American
-      cuisine made from locally sourced and sustainable ingredients.",
-      4, "Fenway"]
+                ["chicken & rice guys", "Food truck that specializes in
+                  chicken and lamb shawarma.", 4, "Harvard Square"],
+                ["banh mi", "Food truck that specializes
+                  in Asian fusion-type foods.", 4, "South Station"],
+                ["mei mei", "Food truck that serves creative Chinese-American
+                  cuisine made from locally sourced and sustainable ingredients.",
+                  4, "Fenway"]
 ]
 foodtrucks.each do |foodtruck|
   name, description, avg_rating, location = foodtruck
