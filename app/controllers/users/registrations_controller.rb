@@ -12,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  GET /resource/edit
+  # GET /resource/edit
   def edit
     super
   end

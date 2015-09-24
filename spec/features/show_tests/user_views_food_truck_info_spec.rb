@@ -15,7 +15,7 @@ feature "user views show page", %{
       location: "Harvard Square"
     )
 
-    visit "/food_trucks/#{sample_food_truck_1.id}"
+    visit food_truck_path(sample_food_truck_1)
     expect(page).to have_content(sample_food_truck_1.name)
   end
 
