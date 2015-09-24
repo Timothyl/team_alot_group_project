@@ -93,22 +93,9 @@ feature "user submits a food truck review", %{
 
     expect(page).to have_content("Submit Your Review")
 
-    click_button('Submit Your Review')
+    click_on('Submit Your Review')
 
-    expect(page).to have_content("Header")
-    expect(page).to have_content("Body")
-    expect(page).to have_content("Rating")
-
-    fill_in "Header", with: 'blahblahblah'
-    fill_in "Body", with: 'such food much good
-    such food much good such food much
-    good such food much good such food much good'
-    fill_in "Rating", with: '1'
-
-    click_button('Submit Review')
-
-    expect(page).to have_content("You need to sign in
-    or sign up before continuing.")
+    expect(page).to have_content("Log in")
 
   end
 end

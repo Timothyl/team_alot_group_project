@@ -14,6 +14,7 @@
 
 <h2>Reviews</h2>
 
+<%- if current_user -%>
 <button data-remote="true" class="button radius"
 onclick="toggleVisibility('reviewform');">
 Submit Your Review</button>
@@ -32,6 +33,12 @@ Submit Your Review</button>
   <%= f.submit "Submit Review" %>
  <% end %>
 </div>
+
+<%- else -%>
+<%= link_to 'Submit Your Review', new_user_session_path,
+class: "button radius" %>
+
+<%- end -%>
 
 <div id="reviews">
 <%= render @reviews %>
