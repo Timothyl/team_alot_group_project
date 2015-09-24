@@ -6,12 +6,12 @@ class FoodTrucksController < ApplicationController
   def show
     @food_truck = FoodTruck.find(params[:id])
     @reviews = @food_truck.reviews.page params[:page]
-    @review = Review.new
   end
 
   def new
     @food_truck = FoodTruck.new
   end
+  
 
   def create
     @food_truck = FoodTruck.new(food_truck_params)
