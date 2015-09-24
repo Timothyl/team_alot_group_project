@@ -1,6 +1,5 @@
 class FoodTrucksController < ApplicationController
   def index
-
     if params[:search]
       @food_trucks = FoodTruck.search(params[:search]).order("created_at DESC")
       if @food_trucks == []
@@ -21,7 +20,7 @@ class FoodTrucksController < ApplicationController
   end
 
   def create
-    food_truck_params['name'].downcase!
+    food_truck_params['name']
     @food_truck = FoodTruck.new(food_truck_params)
 
     if @food_truck.save

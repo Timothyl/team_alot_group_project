@@ -11,6 +11,6 @@ class FoodTruck < ActiveRecord::Base
   validates :avg_rating, numericality: { only_integer: true }
 
   def self.search(query)
-    where("name like ?", "%#{query}%".downcase)
+    where("name ilike ?", "%#{query}%")
   end
 end
