@@ -23,6 +23,4 @@ feature "user searches for food truck", %{
     click_button "Search"
     expect(page).to have_content("No food trucks found")
   end
-
-
 end
