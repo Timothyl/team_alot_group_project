@@ -1,4 +1,4 @@
-<%- if current_user -%>
+
 <div class="panel">
 
     <div id="info">
@@ -9,7 +9,7 @@
         <ul>Created At: <%= review.created_at.to_date  %></ul>
       </ul>
     </div>
-
+    <%- if current_user -%>
     <button data-remote="true" class="button radius button-edit-form">
     Edit your review</button>
 
@@ -22,12 +22,10 @@
         <%= f.text_field :body %>
         <br>
         <%= f.label :rating %>
-        <%= f.text_area :rating %>
+        <%= f.number_field :rating %>
         <br>
-
-        <%= f.submit "Submit Review" %>
+        <%= f.submit "Submit Review", :class => 'edit_button' %>
        <% end %>
     </div>
+    <%- end -%>
 </div>
-
-<%- end -%>
