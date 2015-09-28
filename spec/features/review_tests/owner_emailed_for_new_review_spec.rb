@@ -38,8 +38,5 @@ feature "owner receives email for new review", %{
     good such food much good such food much good'
     fill_in "Rating", with: '1'
     click_button('Submit Review')
-
-
-
   end
 end
