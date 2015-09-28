@@ -9,7 +9,7 @@
         <ul>Created At: <%= review.created_at.to_date  %></ul>
       </ul>
     </div>
-    <%- if current_user -%>
+    <%- if current_user == review.user -%>
     <button data-remote="true" class="button radius button-edit-form">
     Edit your review</button>
 

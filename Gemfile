@@ -55,6 +55,8 @@ group :development do
   gem 'spring'
 
 end
+# Used for testing JS
+gem 'selenium-webdriver', '~> 2.47.1', group: [:development, :test]
 
 gem 'rails_12factor', group: :production
 

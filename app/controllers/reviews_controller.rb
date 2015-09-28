@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     @food_truck = FoodTruck.find(params[:food_truck_id])
     @review = Review.new(review_params)
     @review.food_truck_id = @food_truck.id
-
+    @review.user = current_user
     if @review.save
       redirect_to food_truck_path(@food_truck)
       flash[:success] = 'New Review Added'
@@ -26,7 +26,6 @@ class ReviewsController < ApplicationController
   def update
     @food_truck = FoodTruck.find(params[:food_truck_id])
     @review = Review.find(params[:id])
-    binding.pry
     if @review.update_attributes(review_params)
       flash[:notice] = "Review updated!"
       redirect_to food_truck_path(@food_truck)
