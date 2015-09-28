@@ -5,16 +5,33 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
     @food_truck = FoodTruck.find(params[:food_truck_id])
+    @review = Review.new(review_params)
     @review.food_truck_id = @food_truck.id
-
+    @review.user = current_user
     if @review.save
       redirect_to food_truck_path(@food_truck)
       flash[:success] = 'New Review Added'
     else
       flash[:errors] = @review.errors.full_messages.join(". ")
       render :new
+    end
+  end
+
+  def edit
+    @food_truck = FoodTruck.find(params[:food_truck_id])
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    @food_truck = FoodTruck.find(params[:food_truck_id])
+    @review = Review.find(params[:id])
+    if @review.update_attributes(review_params)
+      flash[:notice] = "Review updated!"
+      redirect_to food_truck_path(@food_truck)
+    else
+      flash[:notice] = "incorrect"
+      redirect_to food_truck_path(@food_truck)
     end
   end
 

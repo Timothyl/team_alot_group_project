@@ -1,6 +1,31 @@
+
 <div class="panel">
-<p>Header: <%= review.header  %></p>
-<p>Rating: <%= review.rating  %></p>
-<p>Review: <%= review.body  %></p>
-<p>Created At: <%= review.created_at.to_date  %></p>
+
+    <div id="info">
+      <ul>
+        <ul>Header: <%= review.header  %></ul>
+        <ul>Rating: <%= review.rating  %></ul>
+        <ul>Review: <%= review.body  %></ul>
+        <ul>Created At: <%= review.created_at.to_date  %></ul>
+      </ul>
+    </div>
+    <%- if current_user == review.user && current_user -%>
+    <button data-remote="true" class="button radius button-edit-form">
+    Edit your review</button>
+
+    <div class="hide form-div" >
+       <%= form_for [@food_truck, review], class: "edit-form" do |f| %>
+        <%= f.label :header %>
+        <%= f.text_field :header %>
+        <br>
+        <%= f.label :body %>
+        <%= f.text_field :body %>
+        <br>
+        <%= f.label :rating %>
+        <%= f.number_field :rating %>
+        <br>
+        <%= f.submit "Submit Review", :class => 'edit_button' %>
+       <% end %>
+    </div>
+    <%- end -%>
 </div>

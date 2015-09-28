@@ -14,38 +14,40 @@
 
 <h2>Reviews</h2>
 
+
 <%- if current_user -%>
-<button data-remote="true" class="button radius"
-onclick="toggleVisibility('reviewform');">
-Submit Your Review</button>
-<div id='reviewform'>
- <%= form_for [@food_truck, @review] do |f| %>
-  <%= f.label :header %>
-  <%= f.text_field :header %>
-  <br>
-  <%= f.label :body %>
-  <%= f.text_field :body %>
-  <br>
-  <%= f.label :rating %>
-  <%= f.text_area :rating %>
-  <br>
+  <div class="new-review">
+    <button data-remote="true" class="button radius button-new-form">
+    Submit Your Review</button>
+    <div class="hide reviewform">
+     <%= form_for [@food_truck, @review] do |f| %>
+      <%= f.label :header %>
+      <%= f.text_field :header %>
+      <br>
+      <%= f.label :body %>
+      <%= f.text_field :body %>
+      <br>
+      <%= f.label :rating %>
+      <%= f.text_area :rating %>
+      <br>
 
-  <%= f.submit "Submit Review" %>
- <% end %>
-</div>
+      <%= f.submit "Submit Review" %>
+     <% end %>
+    </div>
 
-<%- else -%>
-<%= link_to 'Submit Your Review', new_user_session_path,
-class: "button radius" %>
-
+  <%- else -%>
+    <%= link_to 'Submit Your Review', new_user_session_path,
+    class: "button radius" %>
+  </div>
 <%- end -%>
 
+
 <div id="reviews">
-<%= render @reviews %>
+  <%= render @reviews %>
 </div>
 
 <div id ="paginator">
-  <%= paginate @reviews, :remote => true %>
+  <%= paginate @reviews %>
 </div>
 
 <%= link_to "Back", food_trucks_path,
