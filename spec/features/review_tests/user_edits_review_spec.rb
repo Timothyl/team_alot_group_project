@@ -31,6 +31,24 @@ feature "user edits a food truck review", %{
     expect(page).to have_content("This is the test header!")
     expect(page).to have_content("This is the test body. It's perfect for testing and it is the perfect length for it.")
     value = expect(page).to have_content("3")
-    binding.pry
+  end
+
+  scenario "user is not logged so he/she cannot edit their review", js: true do
+    user = FactoryGirl.create(:user)
+    food_truck_review = FactoryGirl.create(:review, user: user)
+
+
+    visit new_user_session_path
+
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button "Log in"
+
+    click_link "Sign Out"
+
+    visit food_truck_path(food_truck_review.food_truck)
+
+    expect(page).to have_content(food_truck_review.header)
+    expect(page).to_not have_content("Edit your review")
   end
 end
