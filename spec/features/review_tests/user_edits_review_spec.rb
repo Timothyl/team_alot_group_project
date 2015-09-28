@@ -10,7 +10,7 @@ feature "user edits a food truck review", %{
 
   scenario "user is logged in and edits their review", js: true do
     user = FactoryGirl.create(:user)
-    FactoryGirl.create(:review, user: user)
+    review = FactoryGirl.create(:review, user: user)
 
     visit new_user_session_path
 
@@ -18,7 +18,7 @@ feature "user edits a food truck review", %{
     fill_in "Password", with: user.password
     click_button "Log in"
 
-    click_link "foodtruck1"
+    visit food_truck_path(review.food_truck)
 
     click_button "Edit your review"
     fill_in "Header", with: "This is the test header!"
