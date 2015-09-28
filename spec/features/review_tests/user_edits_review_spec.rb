@@ -22,12 +22,11 @@ feature "user edits a food truck review", %{
 
     click_button "Edit your review"
     fill_in "Header", with: "This is the test header!"
-    fill_in "Body", with: "This is the test body. It's perfect for testing and
-    it is the perfect length for it."
+    fill_in"Body", with: "This is the test body. It's perfect for testing and it is the perfect length for it."
+    binding.pry
     fill_in "Rating", with: 3
 
     click_button "Submit Review"
-
     expect(page).to have_content("This is the test header!")
     expect(page).to have_content("This is the test body. It's perfect for
     testing and it is the perfect length for it.")

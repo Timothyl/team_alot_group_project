@@ -27,9 +27,10 @@ $(".edit_button").click(function(event){
     alert("Body must be at least 30 characters");
   }else if($rating.val().length == 0){
     alert("rating cannot be blank");
-  }else if($rating.val() > 5 || rating.val() < 1){
+  }else if($rating.val() > 5 || $rating.val() < 1){
     alert("rating must be between 1 and 5")
   }else{
+    debugger;
     $(this).closest(".edit_review").submit();
   }
 });
