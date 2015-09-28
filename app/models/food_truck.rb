@@ -9,4 +9,8 @@ class FoodTruck < ActiveRecord::Base
   validates :description, length: { maximum: 200 }
   validates :avg_rating, presence: true
   validates :avg_rating, numericality: { only_integer: true }
+
+  def self.search(query)
+    where("name ilike ?", "%#{query}%")
+  end
 end
