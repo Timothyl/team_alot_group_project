@@ -37,10 +37,9 @@ feature "owner receives email for new review", %{
     such food much good such food much
     good such food much good such food much good'
     fill_in "Rating", with: '1'
-    binding.pry
     click_button('Submit Review')
 
-    
+
 
   end
 end
