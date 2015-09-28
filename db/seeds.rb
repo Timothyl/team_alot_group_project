@@ -29,3 +29,5 @@ foodtrucks.each do |foodtruck|
                               food_truck: f)
   end
 end
+
+User.create(email: "admin@example.com", password: 'password', admin: true)
