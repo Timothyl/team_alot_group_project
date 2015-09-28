@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @food_truck =FoodTruck.find(params[:food_truck_id])
+    @food_truck = FoodTruck.find(params[:food_truck_id])
     @review = Review.find(params[:id])
   end
 
@@ -34,7 +34,6 @@ class ReviewsController < ApplicationController
       redirect_to food_truck_path(@food_truck)
     end
   end
-
 
   protected
 
