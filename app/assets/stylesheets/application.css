@@ -15,3 +15,11 @@
  *= require foundation_and_overrides
 
  */
+
+ .name {
+   font-size: 150%;
+ }
+
+ .in_panel {
+   list-style-type: none;
+ }
