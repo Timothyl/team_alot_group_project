@@ -30,4 +30,4 @@ foodtrucks.each do |foodtruck|
   end
 end
 
-User.create(email: "admin@example.com", password: 'password', admin: true)
+User.create(email: admin_email, password: admin_pass, admin: true)
