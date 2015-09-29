@@ -7,10 +7,17 @@ Rails.application.routes.draw do
     resources :food_trucks, only: [:new, :create] do
       resources :reviews, only: [:new, :create]
     end
-  end
+
   resources :food_trucks, only: [:index, :show,
                                 :new, :create] do
     resources :reviews
+  end
+
+  resources :food_trucks do
+    get '/votes' => 'votes#create'
+  end
+
+
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
