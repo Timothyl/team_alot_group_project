@@ -19,10 +19,19 @@ feature 'user registers', %Q{
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
 
+    attach_file "Profile Photo", "#{Rails.root}/spec/support/images/example_photo.jpg"
+
     click_button 'Sign up'
 
+    user = User.last
     expect(page).to have_content('Welcome! You have signed up successfully.')
     expect(page).to have_content('Sign Out')
+
+    visit user_path(user)
+
+    expect(page).to have_content("john@example.com")
+    expect(page).to have_xpath("//img[@src=\"/uploads/user/profile_photo/#{user.id}/example_photo.jpg\"]")
+    expect(user.profile_photo.file.filename).to eq("example_photo.jpg")
   end
 
   scenario 'provide invalid registration information' do

@@ -52,7 +52,7 @@ feature 'registered user submits new food truck', %{
     expect(page).to have_content('Forgot your password?')
   end
 
-  scenario 'registed user submits invalid form' do
+  scenario 'registered user submits invalid form' do
     user = FactoryGirl.create(:user)
 
     visit food_trucks_path

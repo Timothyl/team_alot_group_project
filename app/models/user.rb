@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
 
   has_many :reviews
   has_many :food_trucks
+
+  mount_uploader :profile_photo, ProfilePhotoUploader
 end
