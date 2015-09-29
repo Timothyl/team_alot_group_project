@@ -20,6 +20,8 @@ feature 'user edits profile', %{
 
     click_link('My Account')
 
+    click_link('Edit Profile')
+
     expect(page).to have_content('Edit User')
     expect(page).to have_content('(we need your
     current password to confirm your changes)')
