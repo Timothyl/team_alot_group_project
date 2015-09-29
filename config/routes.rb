@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   resources :users, only: :show
 
   as :user do
-    get 'users', :to => 'users#show', :as => :user_root
+    get 'users', to: 'users#show', as: :user_root
   end
 end
