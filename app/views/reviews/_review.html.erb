@@ -13,6 +13,7 @@
     <button data-remote="true" class="button radius button-edit-form">
     Edit your review</button>
 
+
     <div class="hide form-div" >
        <%= form_for [@food_truck, review], class: "edit-form" do |f| %>
         <%= f.label :header %>
@@ -28,4 +29,12 @@
        <% end %>
     </div>
     <%- end -%>
+
+    <% if current_user %>
+      <% if current_user.admin || current_user == review.user %>
+        <%= link_to "Delete review", [@food_truck, review], method: :delete,
+         data: {confirm: "Are you sure?"} %>
+      <% end %>
+    <% end %>
+
 </div>

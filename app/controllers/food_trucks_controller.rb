@@ -37,6 +37,13 @@ class FoodTrucksController < ApplicationController
     end
   end
 
+  def destroy
+    @food_truck = FoodTruck.find(params[:id])
+    @food_truck.destroy
+    flash[:success] = "Food truck deleted!"
+    redirect_to "/"
+  end
+
   private
 
   def food_truck_params

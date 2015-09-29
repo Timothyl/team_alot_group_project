@@ -36,6 +36,14 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @food_truck = FoodTruck.find(params[:food_truck_id])
+    @review = Review.find(params[:id])
+    @review.destroy
+    flash[:success] = "Review deleted!"
+    redirect_to food_truck_path(@food_truck)
+  end
+
   protected
 
   def review_params
