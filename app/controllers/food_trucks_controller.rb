@@ -7,11 +7,15 @@ class FoodTrucksController < ApplicationController
       end
     else
       @food_trucks = FoodTruck.all.order('created_at DESC')
+      @food_trucks.each do |truck|
+        FoodTruck.avg_rating(truck)
+      end
     end
   end
 
   def show
     @food_truck = FoodTruck.find(params[:id])
+    FoodTruck.avg_rating(@food_truck)
     @reviews = @food_truck.reviews.page params[:page]
     @review = Review.new
   end

@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
     @review.food_truck_id = @food_truck.id
     @review.user = current_user
     if @review.save
+      FoodTruck.avg_rating(@food_truck)
       redirect_to food_truck_path(@food_truck)
       flash[:success] = 'New Review Added'
     else
