@@ -1,9 +1,9 @@
 require "rails_helper"
 
 feature "user upvotes a food truck review", %{
- As an authenticated user
- I want to upvote a food truck review
- So that I can give implicit approval
+  As an authenticated user
+  I want to upvote a food truck review
+  So that I can give implicit approval
 } do
  # Acceptance Criteria
  # If a user is logged in, they can edit vote on reviews.

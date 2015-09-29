@@ -14,17 +14,14 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-
   resources :food_trucks do
     get '/votes' => 'votes#create'
   end
 
-
-  # The priority is based upon order of creation: first created -> highest priority.
+  # The priority is based upon order of creation:first created->highest priority
   # See how all your routes lay out with "rake routes".
 
   resources :users, only: :show
-
 
   as :user do
     get 'users', to: 'users#show', as: :user_root

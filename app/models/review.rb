@@ -9,24 +9,21 @@ class Review < ActiveRecord::Base
   validates :rating, presence: true, numericality: { only_integer: true }
   validates :rating, inclusion: { in: 1..5 }
 
-
-
-
   def upvotes_score
-    upvotes = self.votes.where(upvote:1).count
+    upvotes = votes.where(upvote: 1).count
     if upvotes.nil?
       return 0
     else
-    return upvotes
+      return upvotes
     end
   end
 
   def downvotes_score
-    downvotes = self.votes.where(downvote:1).count
+    downvotes = votes.where(downvote: 1).count
     if downvotes.nil?
       return 0
     else
-    return downvotes
+      return downvotes
     end
   end
 
