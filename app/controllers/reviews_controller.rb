@@ -18,11 +18,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
-
-
-
-=======
   def edit
     @food_truck = FoodTruck.find(params[:food_truck_id])
     @review = Review.find(params[:id])
@@ -47,7 +42,7 @@ class ReviewsController < ApplicationController
     flash[:success] = "Review deleted!"
     redirect_to food_truck_path(@food_truck)
   end
->>>>>>> f692a0b372204d9fbe593a40367cead8f2df95e6
+
 
   protected
 

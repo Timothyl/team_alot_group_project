@@ -8,7 +8,6 @@ class VotesController < ApplicationController
   end
 
   def create
-
     @food_truck = FoodTruck.find(params[:food_truck_id])
     @review = @food_truck.reviews.where(id:params[:review_id])
     vote_check = Vote.find_by(review_id:params[:review_id],user_id:current_user)

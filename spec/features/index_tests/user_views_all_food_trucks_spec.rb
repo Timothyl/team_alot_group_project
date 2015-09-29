@@ -15,7 +15,6 @@ feature "user views", %{
       avg_rating: 4,
       location: "Harvard Square"
     )
-
     visit food_trucks_path
     expect(page).to have_content(sample_food_truck_1.name)
     expect(page).to have_content(sample_food_truck_1.avg_rating)

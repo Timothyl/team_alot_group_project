@@ -13,7 +13,7 @@ feature "user upvotes a food truck review", %{
 
    visit food_truck_path(food_truck_review.food_truck)
 
-   page.find(".upvote_button").click
+   page.find(".novoteforyou").click
 
    expect(page).to have_content("Log in")
    expect(page).to have_content("Forgot your password?")
@@ -47,9 +47,9 @@ feature "user upvotes a food truck review", %{
 
    visit food_truck_path(food_truck_review.food_truck)
 
-   page.find(".vote-up").click
+   page.find("#upvote").click
 
-   expect(page).to have_content("Score: 1")
+   expect(page).to have_content("1")
  end
 
  scenario "user is logged in and downvotes a review", js: true do
@@ -64,12 +64,12 @@ feature "user upvotes a food truck review", %{
 
    visit food_truck_path(food_truck_review.food_truck)
 
-   page.find(".vote-down").click
+   page.find("#downvote").click
 
-   expect(page).to have_content("Score: -1")
+   expect(page).to have_content("-1")
  end
 
- scenario "user regrets their decision, undoes vote", js: true do
+ scenario "user regrets their decision, changes vote", js: true do
    user = FactoryGirl.create(:user)
    food_truck_review = FactoryGirl.create(:review, user: user)
 
@@ -81,10 +81,10 @@ feature "user upvotes a food truck review", %{
 
    visit food_truck_path(food_truck_review.food_truck)
 
-   page.find(".vote-down").click
-   page.find(".vote-down").click
+   page.find("#upvote").click
+   page.find("#downvote").click
 
-   expect(page).to have_content("Score: 0")
+   expect(page).to have_content("-1")
  end
 
 end
