@@ -15,8 +15,16 @@ feature "user views show page", %{
       location: "Harvard Square"
     )
 
+    r1 = FactoryGirl.create(:review, food_truck: sample_food_truck_1)
+    r2 = FactoryGirl.create(:review, food_truck: sample_food_truck_1)
+    r3 = FactoryGirl.create(:review, food_truck: sample_food_truck_1)
+    r4 = FactoryGirl.create(:review, food_truck: sample_food_truck_1)
+
+    average = (r1.rating + r2.rating + r3.rating + r4.rating) / 4.0
+
     visit food_truck_path(sample_food_truck_1)
     expect(page).to have_content(sample_food_truck_1.name)
+    expect(page).to have_content(average)
   end
 
   scenario "user clicks show page link" do
