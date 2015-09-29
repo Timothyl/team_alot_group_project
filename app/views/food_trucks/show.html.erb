@@ -15,7 +15,7 @@
 <% if current_user %>
   <% if current_user.admin %>
     <%= link_to "Delete food truck", @food_truck, method: :delete,
-     data: {confirm: "sure?"} %>
+     data: {confirm: "Are you sure?"} %>
   <% end %>
 <% end %>
 
