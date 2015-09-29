@@ -1,13 +1,46 @@
-<div class="panel" id="<%= review.id %>">
-<p>Header: <%= review.header  %></p>
-<p>Rating: <%= review.rating  %></p>
-<p>Review: <%= review.body  %></p>
-<% if current_user %>
-<div id="ballotBox">
-  <a id="upvote" class="vote"> <%= image_tag("upvote.png") %> </a>
-  <div id="review_score"> <%= review.score %> </div>
-  <a id="downvote" class="vote"><%= image_tag("downvote.png") %></a>
-<% end %>
-</div>
-<p>Created At: <%= review.created_at.to_date  %></p>
+<div class="panel">
+
+    <div id="info">
+      <ul>
+        <ul>Header: <%= review.header  %></ul>
+        <ul>Rating: <%= review.rating  %></ul>
+        <ul>Review: <%= review.body  %></ul>
+        <% if current_user %>
+        <div id="ballotBox">
+          <a id="upvote" class="vote"> <%= image_tag("upvote.png") %> </a>
+          <div id="review_score"> <%= review.score %> </div>
+          <a id="downvote" class="vote"><%= image_tag("downvote.png") %></a>
+        <% end %>
+        <ul>Created At: <%= review.created_at.to_date  %></ul>
+      </ul>
+    </div>
+    <%- if current_user == review.user && current_user -%>
+    <button data-remote="true" class="button radius button-edit-form">
+    Edit your review</button>
+
+
+    <div class="hide form-div" >
+       <%= form_for [@food_truck, review], class: "edit-form" do |f| %>
+        <%= f.label :header %>
+        <%= f.text_field :header %>
+        <br>
+        <%= f.label :body %>
+        <%= f.text_field :body %>
+        <br>
+        <%= f.label :rating %>
+        <%= f.number_field :rating %>
+        <br>
+        <%= f.submit "Submit Review", :class => 'edit_button' %>
+       <% end %>
+    </div>
+    <%- end -%>
+
+    <% if current_user %>
+      <% if current_user.admin %>
+        <%= link_to "Delete review", [@food_truck, review], method: :delete,
+         data: {confirm: "Are you sure?"} %>
+      <% end %>
+    <% end %>
+
+
 </div>

@@ -4,8 +4,8 @@ Rails.application.routes.draw do
         sessions: 'users/sessions'
   }
   authenticate :user do
-    resources :food_trucks, only: [:new, :create] do
-      resources :reviews, only: [:new, :create]
+    resources :food_trucks, only: [:new, :create, :destroy] do
+      resources :reviews, only: [:new, :create, :destroy]
     end
 
   resources :food_trucks, only: [:index, :show,

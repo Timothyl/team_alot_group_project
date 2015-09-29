@@ -16,6 +16,10 @@
 
  */
 
-#reviewform {
-  display: none;
-}
+ .name {
+   font-size: 150%;
+ }
+
+ .in_panel {
+   list-style-type: none;
+ }

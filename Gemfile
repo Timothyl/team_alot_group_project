@@ -10,6 +10,8 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
+# Use for jquery validation
+gem 'jquery-validation-rails'
 # Use for pagination
 gem 'kaminari'
 # Use postgresql as the database for Active Record
@@ -53,6 +55,8 @@ group :development do
   gem 'spring'
 
 end
+# Used for testing JS
+gem 'selenium-webdriver', '~> 2.47.1', group: [:development, :test]
 
 gem 'rails_12factor', group: :production
 
