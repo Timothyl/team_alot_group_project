@@ -10,6 +10,22 @@ feature "Admin deletes review from food truck", %{
   # delete the review.
 
   scenario "admin deletes review from food truck" do
-    
+    review = FactoryGirl.create(:review)
+    admin = FactoryGirl.create(:user, admin: true)
+
+    visit "/"
+    click_link('Sign In')
+
+    fill_in 'Email', with: admin.email
+    fill_in 'Password', with: admin.password
+
+    click_button 'Log in'
+
+    visit food_truck_path(review.food_truck)
+
+    click_link "Delete review"
+
+    expect(page).to_not have_content(review.header)
+    expect(page).to_not have_content(review.body)
   end
 end
