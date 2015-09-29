@@ -12,6 +12,13 @@
   </p></h5>
 </ul>
 
+<% if current_user %>
+  <% if current_user.admin %>
+    <%= link_to "Delete food truck", @food_truck, method: :delete,
+     data: {confirm: "sure?"} %>
+  <% end %>
+<% end %>
+
 <h2>Reviews</h2>
 
 

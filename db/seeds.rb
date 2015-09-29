@@ -29,3 +29,5 @@ foodtrucks.each do |foodtruck|
                               food_truck: f)
   end
 end
+
+User.create(email: ENV['admin_email'], password: ENV['admin_pass'], admin: true)
