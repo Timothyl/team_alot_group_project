@@ -13,7 +13,7 @@ feature "user upvotes a food truck review", %{
 
    visit food_truck_path(food_truck_review.food_truck)
 
-   page.find(".novoteforyou").click
+   page.find("#novoteforyou").click
 
    expect(page).to have_content("Log in")
    expect(page).to have_content("Forgot your password?")
