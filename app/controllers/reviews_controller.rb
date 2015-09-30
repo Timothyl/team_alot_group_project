@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     if @review.save
       unless @food_truck.user == nil
         UserMailer.review_notification(
-        @food_truck.user, current_user, @food_truck).deliver_now
+          @food_truck.user, current_user, @food_truck).deliver_now
       end
       FoodTruck.avg_rating(@food_truck)
       redirect_to food_truck_path(@food_truck)
