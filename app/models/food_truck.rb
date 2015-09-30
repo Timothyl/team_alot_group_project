@@ -14,4 +14,18 @@ class FoodTruck < ActiveRecord::Base
   def self.search(query)
     where("name ilike ?", "%#{query}%")
   end
+
+  def self.avg_rating(food_truck)
+    food_truck_reviews = food_truck.reviews
+    if food_truck_reviews.length == 0
+      return 0
+    else
+      sum = 0
+      food_truck_reviews.each do |review|
+        sum = review.rating + sum
+      end
+    end
+    average = sum.to_f / food_truck_reviews.length
+    food_truck.avg_rating = average
+  end
 end
