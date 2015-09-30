@@ -35,7 +35,7 @@ feature "user upvotes a food truck review", %{
   end
 
   context 'tests that need before each' do
-  before :each do
+    before :each do
     user = FactoryGirl.create(:user)
     food_truck_review = FactoryGirl.create(:review, user: user)
 
