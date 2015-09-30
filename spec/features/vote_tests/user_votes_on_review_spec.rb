@@ -29,13 +29,13 @@ feature "user upvotes a food truck review", %{
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
     click_button "Log in"
-
+    
     visit food_truck_path(food_truck_review.food_truck)
-
     expect(page).to have_content(food_truck_review.body)
   end
 
-  scenario "user is logged in and upvotes a review", js: true do
+  context 'tests that need before each' do
+  before :each do
     user = FactoryGirl.create(:user)
     food_truck_review = FactoryGirl.create(:review, user: user)
 
@@ -46,6 +46,20 @@ feature "user upvotes a food truck review", %{
     click_button "Log in"
 
     visit food_truck_path(food_truck_review.food_truck)
+
+  end
+
+  scenario "user is logged in and upvotes a review", js: true do
+    # user = FactoryGirl.create(:user)
+    # food_truck_review = FactoryGirl.create(:review, user: user)
+    #
+    # visit new_user_session_path
+    #
+    # fill_in "Email", with: user.email
+    # fill_in "Password", with: user.password
+    # click_button "Log in"
+
+    # visit food_truck_path(food_truck_review.food_truck)
 
     page.find("#upvote").click
 
@@ -53,16 +67,16 @@ feature "user upvotes a food truck review", %{
   end
 
   scenario "user is logged in and downvotes a review", js: true do
-    user = FactoryGirl.create(:user)
-    food_truck_review = FactoryGirl.create(:review, user: user)
+    # user = FactoryGirl.create(:user)
+    # food_truck_review = FactoryGirl.create(:review, user: user)
+    #
+    # visit new_user_session_path
+    #
+    # fill_in "Email", with: user.email
+    # fill_in "Password", with: user.password
+    # click_button "Log in"
 
-    visit new_user_session_path
-
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Log in"
-
-    visit food_truck_path(food_truck_review.food_truck)
+    # visit food_truck_path(food_truck_review.food_truck)
 
     page.find("#downvote").click
 
@@ -70,20 +84,21 @@ feature "user upvotes a food truck review", %{
   end
 
   scenario "user regrets their decision, changes vote", js: true do
-    user = FactoryGirl.create(:user)
-    food_truck_review = FactoryGirl.create(:review, user: user)
+    # user = FactoryGirl.create(:user)
+    # food_truck_review = FactoryGirl.create(:review, user: user)
+    #
+    # visit new_user_session_path
+    #
+    # fill_in "Email", with: user.email
+    # fill_in "Password", with: user.password
+    # click_button "Log in"
 
-    visit new_user_session_path
-
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Log in"
-
-    visit food_truck_path(food_truck_review.food_truck)
+    # visit food_truck_path(food_truck_review.food_truck)
 
     page.find("#upvote").click
     page.find("#downvote").click
 
     expect(page).to have_content("-1")
   end
+end
 end
