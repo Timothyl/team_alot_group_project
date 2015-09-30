@@ -32,13 +32,13 @@ class VotesController < ApplicationController
       end
     end
 
-    if @vote != nil
+    if !@vote.nil?
       if params[:vote_type] == "upvote"
-          @vote.upvote = 1
-          @vote.downvote = 0
+        @vote.upvote = 1
+        @vote.downvote = 0
       elsif params[:vote_type] == "downvote"
-          @vote.downvote = 1
-          @vote.upvote = 0
+        @vote.downvote = 1
+        @vote.upvote = 0
       end
       respond_to do |format|
         if @vote.save
@@ -54,8 +54,5 @@ class VotesController < ApplicationController
         format.json { render json: check_review.score }
       end
     end
-
-
-
   end
 end

@@ -108,5 +108,5 @@ feature "user upvotes a food truck review", %{
 
     expect(page).to have_content("0")
   end
-end
+  end
 end
