@@ -1,4 +1,4 @@
- class VotesController < ApplicationController
+class VotesController < ApplicationController
 
 
   def new
@@ -32,11 +32,5 @@
         format.json { render json: check_review.score }
       end
     end
-
   end
-
-
-
-
-
 end

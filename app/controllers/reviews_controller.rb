@@ -43,7 +43,6 @@ class ReviewsController < ApplicationController
     redirect_to food_truck_path(@food_truck)
   end
 
-
   protected
 
   def review_params
