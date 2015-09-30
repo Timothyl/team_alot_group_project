@@ -20,10 +20,7 @@ class FoodTruck < ActiveRecord::Base
     if food_truck_reviews.length == 0
       return 0
     else
-      sum = 0
-      food_truck_reviews.each do |review|
-        sum = review.rating + sum
-      end
+      sum = food_truck_reviews.inject(0) { |sum, review| sum + review.rating }
     end
     average = sum.to_f / food_truck_reviews.length
     food_truck.avg_rating = average

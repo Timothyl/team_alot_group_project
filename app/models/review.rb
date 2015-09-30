@@ -7,7 +7,7 @@ class Review < ActiveRecord::Base
   validates :body, presence: true
   validates :body, length: { minimum: 30 }
   validates :rating, presence: true, numericality: { only_integer: true }
-  validates :rating, inclusion: { in: 1..5 }
+  validates :rating, inclusion: { in: 1..5, message: " must be between 1 to 5" }
 
   def upvotes_score
     upvotes = votes.where(upvote: 1).count
