@@ -1,6 +1,5 @@
 $(function(){
   $(".button-edit-form").on("click", function(){
-    debugger;
     var $panel = $(this).closest(".panel");
     var $form = $panel.find(".form-div");
     $form.toggleClass("hide");

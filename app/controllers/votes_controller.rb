@@ -30,8 +30,6 @@
         check_review = Review.find(params[:review_id])
         format.html
         format.json { render json: check_review.score }
-      else
-        binding.pry
       end
     end
 
