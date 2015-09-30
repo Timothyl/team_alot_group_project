@@ -36,77 +36,77 @@ feature "user upvotes a food truck review", %{
 
   context 'tests that need before each' do
     before :each do
-    user = FactoryGirl.create(:user)
-    food_truck_review = FactoryGirl.create(:review, user: user)
+      user = FactoryGirl.create(:user)
+      food_truck_review = FactoryGirl.create(:review, user: user)
 
-    visit new_user_session_path
+      visit new_user_session_path
 
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Log in"
+      fill_in "Email", with: user.email
+      fill_in "Password", with: user.password
+      click_button "Log in"
 
-    visit food_truck_path(food_truck_review.food_truck)
+      visit food_truck_path(food_truck_review.food_truck)
 
-  end
+    end
 
-  scenario "user is logged in and upvotes a review", js: true do
-    # user = FactoryGirl.create(:user)
-    # food_truck_review = FactoryGirl.create(:review, user: user)
-    #
-    # visit new_user_session_path
-    #
-    # fill_in "Email", with: user.email
-    # fill_in "Password", with: user.password
-    # click_button "Log in"
+    scenario "user is logged in and upvotes a review", js: true do
+      # user = FactoryGirl.create(:user)
+      # food_truck_review = FactoryGirl.create(:review, user: user)
+      #
+      # visit new_user_session_path
+      #
+      # fill_in "Email", with: user.email
+      # fill_in "Password", with: user.password
+      # click_button "Log in"
 
-    # visit food_truck_path(food_truck_review.food_truck)
+      # visit food_truck_path(food_truck_review.food_truck)
 
-    page.find("#upvote").click
+      page.find("#upvote").click
 
-    expect(page).to have_content("1")
-  end
+      expect(page).to have_content("1")
+    end
 
-  scenario "user is logged in and downvotes a review", js: true do
-    # user = FactoryGirl.create(:user)
-    # food_truck_review = FactoryGirl.create(:review, user: user)
-    #
-    # visit new_user_session_path
-    #
-    # fill_in "Email", with: user.email
-    # fill_in "Password", with: user.password
-    # click_button "Log in"
+    scenario "user is logged in and downvotes a review", js: true do
+      # user = FactoryGirl.create(:user)
+      # food_truck_review = FactoryGirl.create(:review, user: user)
+      #
+      # visit new_user_session_path
+      #
+      # fill_in "Email", with: user.email
+      # fill_in "Password", with: user.password
+      # click_button "Log in"
 
-    # visit food_truck_path(food_truck_review.food_truck)
+      # visit food_truck_path(food_truck_review.food_truck)
 
-    page.find("#downvote").click
+      page.find("#downvote").click
 
-    expect(page).to have_content("-1")
-  end
+      expect(page).to have_content("-1")
+    end
 
-  scenario "user regrets their decision, changes vote", js: true do
-    # user = FactoryGirl.create(:user)
-    # food_truck_review = FactoryGirl.create(:review, user: user)
-    #
-    # visit new_user_session_path
-    #
-    # fill_in "Email", with: user.email
-    # fill_in "Password", with: user.password
-    # click_button "Log in"
+    scenario "user regrets their decision, changes vote", js: true do
+      # user = FactoryGirl.create(:user)
+      # food_truck_review = FactoryGirl.create(:review, user: user)
+      #
+      # visit new_user_session_path
+      #
+      # fill_in "Email", with: user.email
+      # fill_in "Password", with: user.password
+      # click_button "Log in"
 
-    # visit food_truck_path(food_truck_review.food_truck)
+      # visit food_truck_path(food_truck_review.food_truck)
 
-    page.find("#upvote").click
-    page.find("#downvote").click
+      page.find("#upvote").click
+      page.find("#downvote").click
 
-    expect(page).to have_content("-1")
-  end
+      expect(page).to have_content("-1")
+    end
 
-  scenario "indecisive user undoes their vote", js: true do
+    scenario "indecisive user undoes their vote", js: true do
 
-    page.find("#upvote").click
-    page.find("#upvote").click
+      page.find("#upvote").click
+      page.find("#upvote").click
 
-    expect(page).to have_content("0")
-  end
+      expect(page).to have_content("0")
+    end
   end
 end
