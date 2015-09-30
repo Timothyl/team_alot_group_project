@@ -29,7 +29,7 @@ feature "user upvotes a food truck review", %{
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
     click_button "Log in"
-    
+
     visit food_truck_path(food_truck_review.food_truck)
     expect(page).to have_content(food_truck_review.body)
   end
@@ -99,6 +99,14 @@ feature "user upvotes a food truck review", %{
     page.find("#downvote").click
 
     expect(page).to have_content("-1")
+  end
+
+  scenario "indecisive user undoes their vote", js: true do
+
+    page.find("#upvote").click
+    page.find("#upvote").click
+
+    expect(page).to have_content("0")
   end
 end
 end

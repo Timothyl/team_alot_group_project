@@ -14,23 +14,48 @@ class VotesController < ApplicationController
     if vote_check.nil?
       @vote = Vote.new(review_id: params[:review_id],user_id: current_user.id)
     else
-      @vote = vote_check
+
+      if params[:vote_type] == "upvote"
+        if vote_check.upvote == 1
+          vote_check.destroy
+          @vote = nil
+        else
+          @vote = vote_check
+        end
+      else
+        if vote_check.downvote == 1
+          vote_check.destroy
+          @vote = nil
+        else
+          @vote = vote_check
+        end
+      end
     end
 
-    if params[:vote_type] == "upvote"
-        @vote.upvote = 1
-        @vote.downvote = 0
-
-    elsif params[:vote_type] == "downvote"
-        @vote.downvote = 1
-        @vote.upvote = 0
-    end
-    respond_to do |format|
-      if @vote.save
+    if @vote != nil
+      if params[:vote_type] == "upvote"
+          @vote.upvote = 1
+          @vote.downvote = 0
+      elsif params[:vote_type] == "downvote"
+          @vote.downvote = 1
+          @vote.upvote = 0
+      end
+      respond_to do |format|
+        if @vote.save
+          check_review = Review.find(params[:review_id])
+          format.html
+          format.json { render json: check_review.score }
+        end
+      end
+    else
+      respond_to do |format|
         check_review = Review.find(params[:review_id])
         format.html
         format.json { render json: check_review.score }
       end
     end
+
+
+
   end
 end
