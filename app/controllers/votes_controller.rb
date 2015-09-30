@@ -19,29 +19,6 @@ class VotesController < ApplicationController
       @vote = vote_check.destroy_if_exists(params[:vote_type])
     end
 
-  #   if !@vote.nil?
-  #     if params[:vote_type] == "upvote"
-  #       @vote.upvote = 1
-  #       @vote.downvote = 0
-  #     elsif params[:vote_type] == "downvote"
-  #       @vote.downvote = 1
-  #       @vote.upvote = 0
-  #     end
-  #     respond_to do |format|
-  #       if @vote.save
-  #         check_review = Review.find(params[:review_id])
-  #         format.html
-  #         format.json { render json: check_review.score }
-  #       end
-  #     end
-  #   else
-  #     respond_to do |format|
-  #       check_review = Review.find(params[:review_id])
-  #       format.html
-  #       format.json { render json: check_review.score }
-  #     end
-  #   end
-  # end
     if !@vote.nil?
       @vote.change_vote(params[:vote_type])
       @vote.save
