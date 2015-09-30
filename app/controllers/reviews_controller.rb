@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
       flash[:success] = 'New Review Added'
     else
       flash[:errors] = @review.errors.full_messages.join(". ")
-      render :new
+      redirect_to food_truck_path(@food_truck)
     end
   end
 

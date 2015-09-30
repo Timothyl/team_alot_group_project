@@ -18,7 +18,8 @@ describe Review do
 
   describe "validations" do
     it { should validate_numericality_of(:rating) }
-    it { should validate_inclusion_of(:rating).in_range(1..5) }
+    it { should validate_inclusion_of(:rating).in_range(1..5).
+                with_message(/ must be between 1 to 5/)}
     it { should validate_presence_of(:header) }
     it { should validate_presence_of(:body) }
     it { should validate_length_of(:body).is_at_least(30) }
