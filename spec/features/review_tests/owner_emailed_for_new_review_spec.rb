@@ -35,6 +35,7 @@ feature "owner receives email for new review", %{
     click_button('Submit Review')
 
     expect(ActionMailer::Base.deliveries.count).to eq(1)
-    expect(ActionMailer::Base.deliveries[0].body.encoded).to have_content("A new review for your food truck")
+    expect(ActionMailer::Base.deliveries[0].body.encoded).to have_content("A
+      new review for your food truck")
   end
 end
