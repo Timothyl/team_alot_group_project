@@ -13,8 +13,8 @@ feature "user searches for food truck", %{
     visit food_trucks_path
 
     fill_in "search-field", with: truck.name
-    click_button "search"
-    binding.pry
+    click_button "Search"
+
     expect(page).to have_content(truck.name)
     expect(page).to_not have_content(truck2.name)
 

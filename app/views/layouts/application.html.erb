@@ -15,20 +15,24 @@
       </li>
     </ul>
 
+
     <section class="top-bar-section">
       <ul class="right">
-          <li class="has-form">
-        <div class="row collapse">
-          <div class="large-8 small-9 columns">
-            <%= form_tag(food_trucks_path, :method => "get", id: "search-form") do %>
-            <%= text_field_tag :search, params[:search], id: "search-field", placeholder: "Search Food Trucks" %>
-          </div>
-          <div class="large-4 small-3 columns">
-            <%= submit_tag "Search", class: "button", id: "search", :name => nil %>
-          </div>
-        </div>
+        <li class="has-form">
+          <form>
+              <div class="row collapse">
+                  <div class="small-8 columns">
+                      <%= form_tag(food_trucks_path, :method => "get", id: "search-form") do %>
+                      <%= text_field_tag :search, params[:search], id: "search-field", placeholder: "Search Food Trucks" %>
+                  </div>
+                  <div class="small-4 columns">
+                      <%= submit_tag "Search", class: "button alert", :name => nil %>
+                  </div>
+              </div>
+          </form>
       </li>
-                <% end %>
+      <% end %>
+
         <li class="divider"></li>
         <li><%= link_to 'Submit New Food Truck', new_food_truck_path %></li>
         <li class="divider"></li>
