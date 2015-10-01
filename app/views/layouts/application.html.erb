@@ -26,7 +26,7 @@
                       <%= text_field_tag :search, params[:search], id: "search-field", placeholder: "Search Food Trucks" %>
                   </div>
                   <div class="small-4 columns">
-                      <%= submit_tag "Search", class: "button alert", :name => nil %>
+                      <%= submit_tag "Search", class: "button secondary", :name => nil %>
                   </div>
               </div>
           </form>
@@ -52,10 +52,23 @@
     </section>
   </nav>
 
+
   <%- flash.each do |key, value| -%>
+    <% if flash[:success].nil? %>
+    <div data-alert class="alert-box alert">
     <div class="flash flash-<%= key %>">
       <%= value %>
+      <a href="#" class="close">x</a>
     </div>
+  </div>
+  <% else %>
+  <div data-alert class="alert-box success">
+  <div class="flash flash-<%= key %>">
+    <%= value %>
+    <a href="#" class="close">x</a>
+  </div>
+</div>
+<% end %>
   <%- end -%>
 
   <%= yield %>

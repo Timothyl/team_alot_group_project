@@ -26,7 +26,7 @@ feature "user searches for food truck", %{
 
     fill_in "search-field", with: "wjdoiajwaoijdawoidjawoi"
     click_button "Search"
-    save_and_open_page
     expect(page).to have_content("No food trucks found")
+    expect(page).to_not have_content(truck.name)
   end
 end
