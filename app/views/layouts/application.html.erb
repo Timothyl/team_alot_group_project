@@ -15,7 +15,6 @@
       </li>
     </ul>
 
-
     <section class="top-bar-section">
       <ul class="right">
           <li class="has-form">
@@ -25,7 +24,7 @@
             <%= text_field_tag :search, params[:search], id: "search-field", placeholder: "Search Food Trucks" %>
           </div>
           <div class="large-4 small-3 columns">
-            <a href="#"><%= submit_tag "Search", :name => nil, class: "button" %></a>
+            <%= submit_tag "Search", class: "button", id: "search", :name => nil %>
           </div>
         </div>
       </li>
