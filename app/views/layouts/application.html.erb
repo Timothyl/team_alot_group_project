@@ -10,21 +10,42 @@
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
-        <h1><a href="/">FoodTrucks</a></h1>
+        <h1><a href="/">Food Truck Finder</a></h1>
+        <li class="divider"></li>
       </li>
     </ul>
 
+
     <section class="top-bar-section">
       <ul class="right">
+          <li class="has-form">
+        <div class="row collapse">
+          <div class="large-8 small-9 columns">
+            <%= form_tag(food_trucks_path, :method => "get", id: "search-form") do %>
+            <%= text_field_tag :search, params[:search], id: "search-field", placeholder: "Search Food Trucks" %>
+          </div>
+          <div class="large-4 small-3 columns">
+            <a href="#"><%= submit_tag "Search", :name => nil, class: "button" %></a>
+          </div>
+        </div>
+      </li>
+                <% end %>
+        <li class="divider"></li>
         <li><%= link_to 'Submit New Food Truck', new_food_truck_path %></li>
+        <li class="divider"></li>
         <%- if current_user -%>
           <li><%= link_to 'My Account', user_path(current_user) %></li>
+          <li class="divider"></li>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <li class="divider"></li>
         <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <li class="divider"></li>
           <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <li class="divider"></li>
         <%- end -%>
       </ul>
+
     </section>
   </nav>
 
