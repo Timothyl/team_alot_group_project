@@ -12,8 +12,8 @@ foodtrucks = [
   ["Bon Me", "Food truck that specializes
   in Asian fusion-type foods.", 4, "South Station", "bonme"],
   ["Mei Mei", "Food truck that serves creative Chinese-American
-  cuisine made from locally sourced and sustainable ingredients.", 4,
-  "Fenway", "meimeiboston"],
+  cuisine made from locally sourced and sustainable
+  ingredients.", 4, "Fenway", "meimeiboston"],
   ["Clover", "Food truck that specializes in local, organic,
   vegetarian-friendly food.", 4, "South Station", "cloverfoodtruck"],
   ["Roxy's Gourmet Grilled Cheese", "Cheery spin-off of popular
@@ -22,8 +22,8 @@ foodtrucks = [
   ["Cookie Monstah", "Food truck serving homemade cookies with all natural
   ingredients and homemade ice cream sandwiches.", 4, "The Greenway
   Carousel", "MonstahTruck"],
-  ["Tenoch Móvil", "Dispenses traditional Mexican chow & beverages.", 4,
-  "Financial District", "TenochMexican"],
+  ["Tenoch Móvil", "Dispenses traditional Mexican chow &
+  beverages.", 4, "Financial District", "TenochMexican"],
   ["Wow Barbecue", "Food truck serving Chinese BBQ meat
   skewers & unique dishes.", 4, "Boylston St", "iloveWOWbbq"],
   ["The Bacon Truck", "The natural evolution (lovechild?) of America's dual,

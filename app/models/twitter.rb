@@ -8,7 +8,6 @@ class Twitter < ActiveRecord::Base
   ENV["TWITTER_CONSUMER_KEY"],
   ENV["TWITTER_SECRET_KEY"]
   )
-  
   $access_token = OAuth::Token.new(
   ENV["TWITTER_ACCESS_TOKEN"],
   ENV["TWITTER_SECRET_TOKEN"]
@@ -24,7 +23,8 @@ class Twitter < ActiveRecord::Base
       options["since_id"] = since_id
     end
     query = URI.encode_www_form(options)
-    address = URI("#{$baseurl}#{path}?#{query}&include_rts=false&exclude_replies=true")
+    address_params = "&include_rts=false&exclude_replies=true"
+    address = URI("#{$baseurl}#{path}?#{query}#{address_params}")
 
     request = Net::HTTP::Get.new address.request_uri
 
@@ -33,7 +33,8 @@ class Twitter < ActiveRecord::Base
 
     path = "/1.1/statuses/oembed.json"
 
-    address = URI("#{$baseurl}#{path}?id=#{id}&align=center&hide_media=true&hide_thread=true&theme=dark")
+    params = "&align=center&hide_media=true&hide_thread=true&theme=dark"
+    address = URI("#{$baseurl}#{path}?id=#{id}#{params}")
 
     request = Net::HTTP::Get.new address.request_uri
 
@@ -42,8 +43,8 @@ class Twitter < ActiveRecord::Base
   end
 
   def self.send_request(address, request)
-    http             = Net::HTTP.new address.host, address.port
-    http.use_ssl     = true
+    http = Net::HTTP.new address.host, address.port
+    http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_PEER
 
     request.oauth! http, $consumer_key, $access_token
