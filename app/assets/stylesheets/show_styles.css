@@ -33,3 +33,7 @@
 .review_radio {
   display: inline;
 }
+
+.new-review {
+  padding-bottom: 35px;
+}

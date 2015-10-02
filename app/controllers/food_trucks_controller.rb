@@ -1,7 +1,7 @@
 class FoodTrucksController < ApplicationController
   def index
     if params[:search]
-      @food_trucks = FoodTruck.search(params[:search]).order("created_at DESC")
+      @food_trucks = FoodTruck.basic_search(params[:search]).order("created_at DESC")
       if @food_trucks == []
         flash[:errors] = 'No food trucks found'
       end
@@ -18,10 +18,28 @@ class FoodTrucksController < ApplicationController
     FoodTruck.avg_rating(@food_truck)
     @reviews = @food_truck.reviews.page params[:page]
     @review = Review.new
+
+    if params[:search]
+      @food_trucks = FoodTruck.basic_search(params[:search]).order("created_at DESC")
+      if @food_trucks == []
+        flash[:errors] = 'No food trucks found'
+      end
+      render :index
+    end
+
+
   end
 
   def new
     @food_truck = FoodTruck.new
+
+    if params[:search]
+      @food_trucks = FoodTruck.basic_search(params[:search]).order("created_at DESC")
+      if @food_trucks == []
+        flash[:errors] = 'No food trucks found'
+      end
+      render :index
+    end
   end
 
   def create
@@ -34,6 +52,14 @@ class FoodTrucksController < ApplicationController
     else
       flash[:errors] = @food_truck.errors.full_messages.join(". ")
       render :new
+    end
+
+    if params[:search]
+      @food_trucks = FoodTruck.basic_search(params[:search]).order("created_at DESC")
+      if @food_trucks == []
+        flash[:errors] = 'No food trucks found'
+      end
+      render :index
     end
   end
 
