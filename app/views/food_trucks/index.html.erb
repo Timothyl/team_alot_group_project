@@ -12,7 +12,7 @@
                 <li><div class="name"><%= link_to food_truck.name, food_truck_path(food_truck) %></div></li>
                 <li>Rating: <%= food_truck.avg_rating %></li>
               </ul>
-              <% unless food_truck.twitter == nil %>
+              <% unless food_truck.latest_tweet == nil %>
                 <%= food_truck.latest_tweet["html"].html_safe %>
               <% end %>
             </div>

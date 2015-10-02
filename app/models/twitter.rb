@@ -29,6 +29,12 @@ class Twitter < ActiveRecord::Base
     request = Net::HTTP::Get.new address.request_uri
 
     response = send_request(address, request)
+    unless response.kind_of? Net::HTTPSuccess
+      return nil
+    end
+    if response.body == '[]'
+      return nil
+    end
     id = JSON.parse(response.body)[0]['id_str']
 
     path = "/1.1/statuses/oembed.json"
