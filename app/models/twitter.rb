@@ -5,26 +5,26 @@ class Twitter < ActiveRecord::Base
 
   $baseurl = "https://api.twitter.com"
   $consumer_key = OAuth::Consumer.new(
-    ENV["TWITTER_CONSUMER_KEY"],
-    ENV["TWITTER_SECRET_KEY"]
+  ENV["TWITTER_CONSUMER_KEY"],
+  ENV["TWITTER_SECRET_KEY"]
   )
-
+  
   $access_token = OAuth::Token.new(
-    ENV["TWITTER_ACCESS_TOKEN"],
-    ENV["TWITTER_SECRET_TOKEN"]
+  ENV["TWITTER_ACCESS_TOKEN"],
+  ENV["TWITTER_SECRET_TOKEN"]
   )
 
   def self.find_tweets(user, since_id)
     path = "/1.1/statuses/user_timeline.json"
-  	options = Hash.new
+    options = Hash.new
     options["screen_name"] = "#{user}"
-  	options["result_type"] = "recent"
-  	options["count"] = "1"
-  	if since_id
+    options["result_type"] = "recent"
+    options["count"] = "1"
+    if since_id
       options["since_id"] = since_id
-  	end
-  	query = URI.encode_www_form(options)
-  	address = URI("#{$baseurl}#{path}?#{query}&include_rts=false&exclude_replies=true")
+    end
+    query = URI.encode_www_form(options)
+    address = URI("#{$baseurl}#{path}?#{query}&include_rts=false&exclude_replies=true")
 
     request = Net::HTTP::Get.new address.request_uri
 
@@ -33,7 +33,7 @@ class Twitter < ActiveRecord::Base
 
     path = "/1.1/statuses/oembed.json"
 
-  	address = URI("#{$baseurl}#{path}?id=#{id}&align=center&hide_media=true&hide_thread=true&theme=dark")
+    address = URI("#{$baseurl}#{path}?id=#{id}&align=center&hide_media=true&hide_thread=true&theme=dark")
 
     request = Net::HTTP::Get.new address.request_uri
 
