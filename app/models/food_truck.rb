@@ -8,6 +8,7 @@ class FoodTruck < ActiveRecord::Base
   validates :description, presence: true
   validates :description, length: { minimum: 20 }
   validates :description, length: { maximum: 200 }
+  validates :twitter, format: { without: /(www).*(.com)/ }
 
   # def self.search(query)
   #   where("name ilike ?", "%#{query}%")
