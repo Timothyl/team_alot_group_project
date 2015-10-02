@@ -5,13 +5,13 @@ class Twitter < ActiveRecord::Base
 
   $baseurl = "https://api.twitter.com"
   $consumer_key = OAuth::Consumer.new(
-      "PS55XVsTBJ6m787x6a2awyckK",
-      "UcRMbuMrhTnKdDtZPE24AyqWAHbBj4l5SuDX9aAYr3rXijdYLh"
+      ENV["TWITTER_CONSUMER_KEY"],
+      ENV["TWITTER_SECRET_KEY"]
   )
 
   $access_token = OAuth::Token.new(
-      "58116905-VcZet6CcjgmwVJrRSRbwKua76QZVS5G553FZMfJS0",
-      "BdNesCWh5rEWTZeKwObqCUiehCf0ldND3ZzmCol57ZuWA"
+      ENV["TWITTER_ACCESS_TOKEN"],
+      ENV["TWITTER_SECRET_TOKEN"]
   )
 
   def self.find_tweets(user, since_id)
@@ -25,7 +25,7 @@ class Twitter < ActiveRecord::Base
   		options["since_id"] = since_id
   	end
   	query = URI.encode_www_form(options)
-  	address = URI("#{$baseurl}#{path}?#{query}")
+  	address = URI("#{$baseurl}#{path}?#{query}&include_rts=false&exclude_replies=true")
 
   	request = Net::HTTP::Get.new address.request_uri
 
@@ -34,13 +34,13 @@ class Twitter < ActiveRecord::Base
 
     path = "/1.1/statuses/oembed.json"
 
-  	address = URI("#{$baseurl}#{path}?id=#{id}")
+  	address = URI("#{$baseurl}#{path}?id=#{id}&align=center&hide_media=true&hide_thread=true&theme=dark")
 
   	request = Net::HTTP::Get.new address.request_uri
 
   	response = send_request(address, request)
-    binding.pry
-  	return response
+
+  	return JSON.parse(response.body)
   end
 
   def self.send_request(address, request)

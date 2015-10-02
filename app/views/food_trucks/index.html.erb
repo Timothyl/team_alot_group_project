@@ -10,16 +10,18 @@
   <div class = "small-1 column">
     <p></p>
   </div>
-  <div class = "small-10 column">
-    <ul class = "small-block-grid-1 medium-block-grid-3" data-equalizer>
+  <div class = "small-10  medium-11 small-centered large-11 column">
+    <ul class = "small-block-grid-1 medium-block-grid-2 large-block-grid-3" data-equalizer>
       <% @food_trucks.each do |food_truck| %>
-          <li id="list">
-            <div class="panel" data-equalizer-watch>
+          <li id="list" data-equalizer-watch>
+            <div class="panel">
               <ul class="in_panel">
                 <li><div class="name"><%= link_to food_truck.name, food_truck_path(food_truck) %></div></li>
                 <li>Rating: <%= food_truck.avg_rating %></li>
-                <li><%= @tweet["html"] %></li>
               </ul>
+              <% unless food_truck.twitter == nil %>
+                <%= food_truck.latest_tweet["html"].html_safe %>
+              <% end %>
             </div>
           </li>
       <% end %>
