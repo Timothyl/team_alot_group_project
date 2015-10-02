@@ -23,13 +23,11 @@ feature 'registered user submits new food truck', %{
 
     expect(page).to have_content('Add a New Food Truck')
     expect(page).to have_content('Name')
-    expect(page).to have_content('Avg rating')
     expect(page).to have_content('Description')
     expect(page).to have_content('Location')
     expect(page).to have_button('Add Food Truck')
 
     fill_in 'Name', with: 'foodtruck1'
-    fill_in 'Avg rating', with: 3
     fill_in 'Description', with: 'much food such truck wow doge
     kek lel wtf grep grop rake spec pppp'
     fill_in 'Location', with: 'Behind you'
@@ -37,7 +35,6 @@ feature 'registered user submits new food truck', %{
     click_button('Add Food Truck')
 
     expect(page).to have_content('foodtruck1')
-    expect(page).to have_content(3)
     expect(page).to have_content('much food such truck wow doge
     kek lel wtf grep grop rake spec pppp')
     expect(page).to have_content('Behind you')
@@ -64,7 +61,6 @@ feature 'registered user submits new food truck', %{
     click_button 'Log in'
 
     fill_in 'Name', with: 'foodtruck1'
-    fill_in 'Avg rating', with: 3
     fill_in 'Description', with: 'I am invalid'
     fill_in 'Location', with: 'Behind you'
 
