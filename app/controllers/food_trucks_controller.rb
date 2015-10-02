@@ -1,7 +1,8 @@
 class FoodTrucksController < ApplicationController
   def index
     if params[:search]
-      @food_trucks = FoodTruck.basic_search(params[:search]).order("created_at DESC")
+      @food_trucks = FoodTruck.basic_search(params[:search]).order
+      ("created_at DESC")
       if @food_trucks == []
         flash[:errors] = 'No food trucks found'
       else
@@ -30,7 +31,8 @@ class FoodTrucksController < ApplicationController
     @review = Review.new
 
     if params[:search]
-      @food_trucks = FoodTruck.basic_search(params[:search]).order("created_at DESC")
+      @food_trucks = FoodTruck.basic_search(params[:search]).order
+      ("created_at DESC")
       if @food_trucks == []
         flash[:errors] = 'No food trucks found'
       end
@@ -44,7 +46,8 @@ class FoodTrucksController < ApplicationController
     @food_truck = FoodTruck.new
 
     if params[:search]
-      @food_trucks = FoodTruck.basic_search(params[:search]).order("created_at DESC")
+      @food_trucks = FoodTruck.basic_search(params[:search]).order
+      ("created_at DESC")
       if @food_trucks == []
         flash[:errors] = 'No food trucks found'
       end
@@ -65,7 +68,8 @@ class FoodTrucksController < ApplicationController
     end
 
     if params[:search]
-      @food_trucks = FoodTruck.basic_search(params[:search]).order("created_at DESC")
+      @food_trucks = FoodTruck.basic_search(params[:search]).order
+      ("created_at DESC")
       if @food_trucks == []
         flash[:errors] = 'No food trucks found'
       end
