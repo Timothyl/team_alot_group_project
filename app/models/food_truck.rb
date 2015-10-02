@@ -9,9 +9,9 @@ class FoodTruck < ActiveRecord::Base
   validates :description, length: { minimum: 20 }
   validates :description, length: { maximum: 200 }
 
-  def self.search(query)
-    where("name ilike ?", "%#{query}%")
-  end
+  # def self.search(query)
+  #   where("name ilike ?", "%#{query}%")
+  # end
 
   def self.avg_rating(food_truck)
     food_truck_reviews = food_truck.reviews
@@ -22,5 +22,15 @@ class FoodTruck < ActiveRecord::Base
     end
     average = sum.to_f / food_truck_reviews.length
     food_truck.avg_rating = average
+  end
+
+  def handle_search
+    if params[:search]
+      @food_trucks = FoodTruck.basic_search(params[:search]).order("created_at DESC")
+      if @food_trucks == []
+        flash[:errors] = 'No food trucks found'
+      end
+      render :index
+    end
   end
 end
