@@ -1,4 +1,20 @@
-<%= current_user.email %>
-<%= image_tag(current_user.profile_photo) %>
+<div class="center row", id="user_profile">
+  <div class="column left">
+    <div><%= image_tag(current_user.profile_photo) %></div>
+  </div>
+<div class="column left">
+  <div class="row">
+    <div><%= current_user.email %></div>
+  </div>
+</div>
+<div class="column left">
+  <div class="row">
+    <div><%= link_to 'Edit Profile', edit_user_registration_path %></div>
+  </div>
+</div>
+  <br>
+<div class="container", id="user_reviews">
+<h3> Reviews by <%= current_user.email %> </h3>
+</div>
 
-<%= link_to 'Edit Profile', edit_user_registration_path %>
+</div>
