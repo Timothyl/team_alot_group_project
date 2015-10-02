@@ -1,22 +1,39 @@
+<div class="row">
 <h1>Add a New Food Truck</h1>
-
+</div>
  <%= form_for @food_truck do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <div class= "row">
+    <div class= "field columns small-6">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+  </div>
   <br>
-  <%= f.label :avg_rating %>
-  <%= f.text_field :avg_rating %>
-  <br>
+  <div class= "row">
+    <div class= "field columns small-8">
   <%= f.label :description %>
   <%= f.text_area :description %>
+    </div>
+  </div>
   <br>
+  <div class= "row">
+    <div class= "field columns small-6">
   <%= f.label :location %>
   <%= f.text_field :location %>
+    </div>
+  </div>
   <br>
+  <div class= "row">
+    <div class= "field columns small-4">
   <%= f.label :twitter %>
   <%= f.text_field :twitter %>
   <br>
+    </div>
+  </div>
+    <div class= "row">
   <%= f.submit "Add Food Truck", class: "success button" %>
+    </div>
  <% end %>
-
+    <div class= "row">
 <%= link_to "Back to home", food_trucks_path, class: "button alert" %>
+  </div>

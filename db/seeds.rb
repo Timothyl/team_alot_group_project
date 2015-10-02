@@ -15,22 +15,22 @@ foodtrucks = [
   cuisine made from locally sourced and sustainable ingredients.",
   4, "Fenway", "meimeiboston"],
   ["Clover", "Food truck that specializes in local, organic,
-    vegetarian-friendly food.", 4, "South Station", "cloverfoodtruck"],
+  vegetarian-friendly food.", 4, "South Station", "cloverfoodtruck"],
   ["Roxy's Gourmet Grilled Cheese", "Cheery spin-off of popular
-    food truck with inventive grilled cheese sandwiches, poutine and
-    burgers.", 4, "South End", "RoxysGrilledChz"],
+  food truck with inventive grilled cheese sandwiches, poutine and
+  burgers.", 4, "South End", "RoxysGrilledChz"],
   ["Cookie Monstah", "Food truck serving homemade cookies with all natural
-    ingredients and homemade ice cream sandwiches.", 4, "The Greenway
-    Carousel", "MonstahTruck"],
+  ingredients and homemade ice cream sandwiches.", 4, "The Greenway
+  Carousel", "MonstahTruck"],
   ["Tenoch Móvil", "Dispenses traditional Mexican chow & beverages.", 4,
   "Financial District", "TenochMexican"],
   ["Wow Barbecue", "Food truck serving Chinese BBQ meat
-    skewers & unique dishes.", 4, "Boylston St", "iloveWOWbbq"],
+  skewers & unique dishes.", 4, "Boylston St", "iloveWOWbbq"],
   ["The Bacon Truck", "The natural evolution (lovechild?) of America's dual,
-    unrelenting fascination with bacon and food trucks.", 4, "Prudential
-    Center", "BaconTruckBOS"],
+  unrelenting fascination with bacon and food trucks.", 4, "Prudential
+  Center", "BaconTruckBOS"],
   ["Stoked Wood Fired Pizza", "Boston's first and only food truck selling
-    wood-fired pizza.", 4, "Boylston St", "StokedPizza"]
+  wood-fired pizza.", 4, "Boylston St", "StokedPizza"]
 ]
 foodtrucks.each do |foodtruck|
   name, description, avg_rating, location, twitter = foodtruck

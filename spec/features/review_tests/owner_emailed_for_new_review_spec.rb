@@ -31,7 +31,7 @@ feature "owner receives email for new review", %{
     fill_in "Body", with: 'such food much good
     such food much good such food much
     good such food much good such food much good'
-    fill_in "Rating", with: '1'
+    select(1, from: "review_rating")
     click_button('Submit Review')
 
     expect(ActionMailer::Base.deliveries.count).to eq(1)

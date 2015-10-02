@@ -69,12 +69,11 @@ feature "user submits a food truck review", %{
     fill_in "Body", with: 'such food much good
     such food much good such food much
     good such food much good such food much good'
-    fill_in "Rating", with: '1'
+    select(3, from: "review_rating")
 
     click_button('Submit Review')
 
     expect(page).to have_content("New Review Added")
-
     expect(page).to have_content('blahblahblah')
   end
 

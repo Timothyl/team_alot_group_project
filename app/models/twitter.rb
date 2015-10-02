@@ -27,29 +27,29 @@ class Twitter < ActiveRecord::Base
   	query = URI.encode_www_form(options)
   	address = URI("#{$baseurl}#{path}?#{query}&include_rts=false&exclude_replies=true")
 
-  	request = Net::HTTP::Get.new address.request_uri
+    request = Net::HTTP::Get.new address.request_uri
 
-  	response = send_request(address, request)
+    response = send_request(address, request)
     id = JSON.parse(response.body)[0]['id_str']
 
     path = "/1.1/statuses/oembed.json"
 
   	address = URI("#{$baseurl}#{path}?id=#{id}&align=center&hide_media=true&hide_thread=true&theme=dark")
 
-  	request = Net::HTTP::Get.new address.request_uri
+    request = Net::HTTP::Get.new address.request_uri
 
-  	response = send_request(address, request)
+    response = send_request(address, request)
 
-  	return JSON.parse(response.body)
+  	JSON.parse(response.body)
   end
 
   def self.send_request(address, request)
   	http             = Net::HTTP.new address.host, address.port
   	http.use_ssl     = true
-  	http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+    http.verify_mode = OpenSSL::SSL::VERIFY_PEER
 
   	request.oauth! http, $consumer_key, $access_token
-  	http.start
-  	return http.request request
+    http.start
+  	http.request request
   end
 end

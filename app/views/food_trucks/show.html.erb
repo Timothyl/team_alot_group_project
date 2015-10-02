@@ -21,31 +21,43 @@
 
 <h2>Reviews</h2>
 
-
 <%- if current_user -%>
   <div class="new-review">
     <button data-remote="true" class="button radius button-new-form">
     Submit Your Review</button>
     <div class="hide reviewform">
      <%= form_for [@food_truck, @review] do |f| %>
+    <div class="left-column">
+      <div class="field rows small-8">
       <%= f.label :header %>
       <%= f.text_field :header %>
-      <br>
-      <%= f.label :body %>
-      <%= f.text_field :body %>
-      <br>
-      <%= f.label :rating %>
-      <%= f.number_field :rating %>
-      <br>
-
-      <%= f.submit "Submit Review" %>
-     <% end %>
+      </div>
     </div>
+    <div class="left-column">
+      <div class="field rows small-8">
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+      </div>
+    </div>
+      <div class="small-block-grid-2">
+        <div class="left columns small-2">
+        <%= f.label :rating %>
+        <%= f.select :rating, options_from_collection_for_select([1, 2, 3, 4, 5], "to_s", "to_s") %>
+        </div>
+      </div>
+      <div class="left">
+      <%= f.submit "Submit Review", class: "success button"%>
+      </div>
+    </div>
+    <br>
+  </div>
+     <% end %>
 
   <%- else -%>
+    <span>
     <%= link_to 'Submit Your Review', new_user_session_path,
     class: "button radius" %>
-  </div>
+  </span>
 <%- end -%>
 
 
@@ -58,4 +70,4 @@
 </div>
 
 <%= link_to "Back", food_trucks_path,
-class: "button success" %>
+class: "button" %>
