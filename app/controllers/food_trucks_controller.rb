@@ -1,7 +1,8 @@
 class FoodTrucksController < ApplicationController
   def index
     if params[:search]
-      @food_trucks = FoodTruck.basic_search(params[:search]).order("created_at DESC")
+      par = "create_at DESC"
+      @food_trucks = FoodTruck.basic_search(params[:search]).order(par)
       if @food_trucks == []
         flash[:errors] = 'No food trucks found'
       else
