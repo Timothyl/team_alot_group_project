@@ -10,10 +10,6 @@ class FoodTruck < ActiveRecord::Base
   validates :description, length: { maximum: 200 }
   validates :twitter, format: { without: /(www).*(.com)/ }
 
-  # def self.search(query)
-  #   where("name ilike ?", "%#{query}%")
-  # end
-
   def self.avg_rating(food_truck)
     food_truck_reviews = food_truck.reviews
     if food_truck_reviews.length == 0
