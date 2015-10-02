@@ -9,6 +9,7 @@ class FoodTrucksController < ApplicationController
       @food_trucks = FoodTruck.all.order('created_at DESC')
       @food_trucks.each do |truck|
         FoodTruck.avg_rating(truck)
+        @tweet = Twitter.find_tweets("cnrguys", nil)
       end
     end
   end

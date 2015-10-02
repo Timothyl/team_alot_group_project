@@ -11,6 +11,7 @@
               <ul class="in_panel">
                 <li><div class="name"><%= link_to food_truck.name, food_truck_path(food_truck) %></div></li>
                 <li>Rating: <%= food_truck.avg_rating %></li>
+                <li><%= @tweet["html"] %></li>
               </ul>
             </div>
           </li>
