@@ -15,6 +15,18 @@
   <br>
 <div class="container", id="user_reviews">
 <h3> Reviews by <%= current_user.email %> </h3>
+  <div id="info">
+    <ul>
+      <% current_user.reviews.each do |r| %>
+      <div class="panel">
+      <p>Food Truck: <%= link_to r.food_truck.name, food_truck_path(r.food_truck) %></p>
+      <p>Header: <%= r.header  %></p>
+      <p>Rating: <%= r.rating  %></p>
+      <p>Review: <%= r.body  %></p>
+      </div>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
 </div>
