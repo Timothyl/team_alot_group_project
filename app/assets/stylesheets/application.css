@@ -15,6 +15,6 @@
  *= require foundation_and_overrides
 
  */
-.row {
+.index_row {
   max-width: 90rem;
 }
