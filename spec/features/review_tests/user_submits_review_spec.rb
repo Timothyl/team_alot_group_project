@@ -69,7 +69,7 @@ feature "user submits a food truck review", %{
     fill_in "Body", with: 'such food much good
     such food much good such food much
     good such food much good such food much good'
-    select(3, :from => "review_rating")
+    select(3, from: "review_rating")
 
     click_button('Submit Review')
 

@@ -31,7 +31,7 @@ feature "owner receives email for new review", %{
     fill_in "Body", with: 'such food much good
     such food much good such food much
     good such food much good such food much good'
-    select(1, :from => "review_rating")
+    select(1, from: "review_rating")
     click_button('Submit Review')
   end
 end

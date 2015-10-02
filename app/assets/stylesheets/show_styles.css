@@ -1,10 +1,8 @@
-.name
-{
+.name {
   font-size: 150%;
 }
 
-.in_panel
-{
+.in_panel {
   list-style-type: none;
 }
 
@@ -27,13 +25,11 @@
   transform: scale(1.1);
 }
 
-.hvr-grow
-{
+.hvr-grow {
   height: 20px;
   width: 15px;
 }
 
-.review_radio
-{
+.review_radio {
   display: inline;
 }
