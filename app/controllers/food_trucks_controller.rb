@@ -4,11 +4,21 @@ class FoodTrucksController < ApplicationController
       @food_trucks = FoodTruck.search(params[:search]).order("created_at DESC")
       if @food_trucks == []
         flash[:errors] = 'No food trucks found'
+      else
+        @food_trucks.each do |truck|
+          FoodTruck.avg_rating(truck)
+          unless truck.twitter == nil
+            truck.latest_tweet = Twitter.find_tweets(truck.twitter, nil)
+          end
+        end
       end
     else
       @food_trucks = FoodTruck.all.order('created_at DESC')
       @food_trucks.each do |truck|
         FoodTruck.avg_rating(truck)
+        unless truck.twitter == nil
+          truck.latest_tweet = Twitter.find_tweets(truck.twitter, nil)
+        end
       end
     end
   end
@@ -47,7 +57,7 @@ class FoodTrucksController < ApplicationController
   private
 
   def food_truck_params
-    params.require(:food_truck).permit(:name, :description,
-                                       :avg_rating, :location)
+    params.require(:food_truck).permit(:name, :description, :avg_rating,
+                                      :location, :twitter)
   end
 end
