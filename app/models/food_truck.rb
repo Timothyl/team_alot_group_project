@@ -23,14 +23,4 @@ class FoodTruck < ActiveRecord::Base
     average = sum.to_f / food_truck_reviews.length
     food_truck.avg_rating = average
   end
-
-  def handle_search
-    if params[:search]
-      @food_trucks = FoodTruck.basic_search(params[:search]).order("created_at DESC")
-      if @food_trucks == []
-        flash[:errors] = 'No food trucks found'
-      end
-      render :index
-    end
-  end
 end
