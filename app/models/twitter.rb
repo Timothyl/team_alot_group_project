@@ -15,14 +15,13 @@ class Twitter < ActiveRecord::Base
   )
 
   def self.find_tweets(user, since_id)
-  	path = "/1.1/statuses/user_timeline.json"
-  	options = Hash.new()
-  	# options["q"] = "@#{user}"
+    path = "/1.1/statuses/user_timeline.json"
+  	options = Hash.new
     options["screen_name"] = "#{user}"
   	options["result_type"] = "recent"
   	options["count"] = "1"
-  	if since_id then
-  		options["since_id"] = since_id
+  	if since_id
+      options["since_id"] = since_id
   	end
   	query = URI.encode_www_form(options)
   	address = URI("#{$baseurl}#{path}?#{query}&include_rts=false&exclude_replies=true")
@@ -44,12 +43,12 @@ class Twitter < ActiveRecord::Base
   end
 
   def self.send_request(address, request)
-  	http             = Net::HTTP.new address.host, address.port
-  	http.use_ssl     = true
+    http             = Net::HTTP.new address.host, address.port
+    http.use_ssl     = true
     http.verify_mode = OpenSSL::SSL::VERIFY_PEER
 
-  	request.oauth! http, $consumer_key, $access_token
+    request.oauth! http, $consumer_key, $access_token
     http.start
-  	http.request request
+    http.request request
   end
 end

@@ -12,8 +12,8 @@ foodtrucks = [
   ["Bon Me", "Food truck that specializes
   in Asian fusion-type foods.", 4, "South Station", "bonme"],
   ["Mei Mei", "Food truck that serves creative Chinese-American
-  cuisine made from locally sourced and sustainable ingredients.",
-  4, "Fenway", "meimeiboston"],
+  cuisine made from locally sourced and sustainable ingredients.", 4,
+  "Fenway", "meimeiboston"],
   ["Clover", "Food truck that specializes in local, organic,
   vegetarian-friendly food.", 4, "South Station", "cloverfoodtruck"],
   ["Roxy's Gourmet Grilled Cheese", "Cheery spin-off of popular
@@ -35,7 +35,8 @@ foodtrucks = [
 foodtrucks.each do |foodtruck|
   name, description, avg_rating, location, twitter = foodtruck
   f = FoodTruck.find_or_create_by!(name: name, description: description,
-    avg_rating: avg_rating, location: location, twitter: twitter)
+                                   avg_rating: avg_rating, location: location,
+                                   twitter: twitter)
 
   (1..10).to_a.each do |n|
     Review.find_or_create_by!(header: "#{n}. This is a review header",
