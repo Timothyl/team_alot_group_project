@@ -5,12 +5,12 @@ class Twitter < ActiveRecord::Base
 
   $baseurl = "https://api.twitter.com"
   $consumer_key = OAuth::Consumer.new(
-  ENV["TWITTER_CONSUMER_KEY"],
-  ENV["TWITTER_SECRET_KEY"]
+    ENV["TWITTER_CONSUMER_KEY"],
+    ENV["TWITTER_SECRET_KEY"]
   )
   $access_token = OAuth::Token.new(
-  ENV["TWITTER_ACCESS_TOKEN"],
-  ENV["TWITTER_SECRET_TOKEN"]
+    ENV["TWITTER_ACCESS_TOKEN"],
+    ENV["TWITTER_SECRET_TOKEN"]
   )
 
   def self.find_tweets(user, since_id)
