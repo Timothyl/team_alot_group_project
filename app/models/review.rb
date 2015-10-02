@@ -30,4 +30,14 @@ class Review < ActiveRecord::Base
   def score
     self.upvotes_score - self.downvotes_score
   end
+
+  def handle_search
+    if params[:search]
+      @food_trucks = FoodTruck.basic_search(params[:search]).order("created_at DESC")
+      if @food_trucks == []
+        flash[:errors] = 'No food trucks found'
+      end
+      render :index
+    end
+  end
 end
